@@ -1,0 +1,454 @@
+﻿<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lektion 9 - Sök jobb innan företaget annonserar</title>
+  <style>
+    :root {
+      --page-bg: #f5f1e8;
+      --text-bg: #ffffff;
+      --heading: #263844;
+      --text: #282828;
+      --muted: #5f6468;
+      --orange: #e97821;
+      --border: #dddddd;
+      --task-bg: #eaf5ef;
+      --soft-button: #efefed;
+      --max-width: 900px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--page-bg);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+      padding: 36px 0 44px;
+    }
+
+    .lesson {
+      padding: 46px 52px 38px;
+      border-radius: 14px;
+      background: var(--text-bg);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 46px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav a {
+      padding: 9px 13px;
+      border: 1px solid #e7e1d7;
+      border-radius: 8px;
+      color: var(--heading);
+      background: #fbfaf7;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--orange);
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      color: var(--heading);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+      font-size: clamp(36px, 7vw, 54px);
+    }
+
+    h2 {
+      margin-top: 44px;
+      margin-bottom: 16px;
+      font-size: clamp(26px, 4vw, 34px);
+    }
+
+    h3 {
+      margin-bottom: 14px;
+      font-size: 25px;
+    }
+
+    p {
+      margin: 0 0 22px;
+      font-size: 18px;
+    }
+    .page-image {
+      display: block;
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      margin: 22px 0 34px;
+      border-radius: 12px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    }
+
+
+    .intro {
+      margin-bottom: 34px;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .text-list,
+    .task-list,
+    .number-list {
+      margin: 0 0 24px;
+      padding-left: 26px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .text-list li,
+    .task-list li,
+    .number-list li {
+      margin-bottom: 8px;
+      padding-left: 4px;
+    }
+
+    .callout-line {
+      margin: 24px 0;
+      padding: 20px 22px;
+      border-left: 5px solid var(--orange);
+      border-radius: 0 10px 10px 0;
+      background: #fff7ee;
+      color: var(--heading);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .task-box,
+    .summary-box {
+      margin: 38px 0 0;
+      padding: 28px;
+      border-radius: 12px;
+    }
+
+    .task-box {
+      border: 1px solid #cfe3d8;
+      background: var(--task-bg);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .task-box h2 {
+      margin-top: 0;
+    }
+
+    .summary-wrap {
+      margin-top: 42px;
+      padding: 28px;
+      border-radius: 14px;
+      background: #f0ece5;
+    }
+
+    .summary-box {
+      margin: 0;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .summary-box h3 {
+      color: var(--orange);
+      margin-top: 0;
+    }
+
+    .lesson-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 38px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .button,
+    .soon-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 13px 20px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button {
+      background: var(--orange);
+      color: #ffffff;
+    }
+
+    .soon-button {
+      background: var(--soft-button);
+      color: #686868;
+      cursor: default;
+    }
+
+    .button:focus-visible {
+      outline: 3px solid rgba(233, 120, 33, 0.35);
+      outline-offset: 3px;
+    }
+
+    .summary-box p:last-child,
+    .task-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .footer {
+      margin-top: 42px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 16px;
+      text-align: center;
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        width: min(100% - 24px, var(--max-width));
+        padding: 24px 0;
+      }
+
+      .lesson {
+        padding: 28px 22px 26px;
+        border-radius: 10px;
+      }
+
+      .nav {
+        margin-bottom: 34px;
+      }
+
+      .nav a {
+        flex: 1 1 calc(50% - 8px);
+        text-align: center;
+      }
+
+      .task-box,
+      .summary-box,
+      .summary-wrap {
+        padding: 22px;
+      }
+
+      .lesson-nav,
+      .button,
+      .soon-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <article class="lesson">
+      <nav class="nav" aria-label="Huvudmeny">
+        <a href="index.html">Startsida</a>
+        <a href="om-metoden.html">Om metoden</a>
+        <a href="lektioner.html">Lektioner</a>
+        <a href="om-robert.html">Om Robert</a>
+        <a href="kontakt.html">Köp lektioner</a>
+      </nav>
+
+      <p class="eyebrow">2000-talets nya metoder för arbetssökande</p>
+      <h1>Lektion 9 – Sök jobb innan företaget annonserar</h1>
+        <img class="page-image" src="bilder/lektion-9.jpg" alt="Bild för lektion 9">
+      <p class="intro">De flesta söker jobb först när en annons redan ligger ute. Då är konkurrensen ofta mycket hård. I den här lektionen lär du dig att skapa kontakt med företag innan behovet blir synligt för alla andra.</p>
+
+      <section aria-labelledby="inte-soker-rubrik">
+        <h2 id="inte-soker-rubrik">Sök hos företag som inte söker personal</h2>
+        <p>Du ska nu söka jobb hos företag som inte har någon annons ute.</p>
+        <p>Om ett företag råkar ha en annons ute är det inget problem. Men många av de företag du kontaktar ska vara företag som inte aktivt söker personal just nu.</p>
+        <p>Det kan låta konstigt.</p>
+        <p>Men många företag letar egentligen alltid efter bra människor.</p>
+        <p>De kanske inte har skrivit en annons. De kanske inte har hunnit tänka färdigt. De kanske inte vet att behovet snart kommer. De kanske bara löser personalproblem när det blir akut.</p>
+        <p>Det är där du kan komma in.</p>
+      </section>
+
+      <section aria-labelledby="snabbt-rubrik">
+        <h2 id="snabbt-rubrik">Företag behöver ofta hjälp snabbt</h2>
+        <p>Mindre och medelstora företag har ofta mycket att göra.</p>
+        <p>När någon blir sjuk, slutar eller behöver vara hemma med barn kan problemet uppstå snabbt.</p>
+        <p>Alla företag har inte tid eller pengar att starta en lång rekryteringsprocess.</p>
+        <p>De behöver ibland en enkel lösning.</p>
+        <p>Om du redan har varit där, lämnat en intresseanmälan och visat vem du är, kan du bli en sådan lösning.</p>
+      </section>
+
+      <section aria-labelledby="personligen-rubrik">
+        <h2 id="personligen-rubrik">Du ska visa upp dig personligen</h2>
+        <p>När du har gjort ditt CV och personliga brev klart lägger du papperen i ett A4-kuvert.</p>
+        <p>Skriv företagets namn på utsidan.</p>
+        <p>Gå sedan till företaget personligen.</p>
+        <p>Ditt mål är inte att kräva en intervju.</p>
+        <p>Ditt mål är enkelt:</p>
+        <ol class="number-list">
+          <li>Lämna kuvertet.</li>
+          <li>Visa upp dig personligen.</li>
+          <li>Ta namn och telefonnummer till den som ansvarar för personal.</li>
+        </ol>
+        <p>Det räcker.</p>
+        <p>Har du tur får du prata några minuter med rätt person. Men räkna inte med det. Se det som en bonus.</p>
+      </section>
+
+      <section aria-labelledby="posta-rubrik">
+        <h2 id="posta-rubrik">Varför du inte ska posta brevet</h2>
+        <p>Många vill göra det enklare för sig.</p>
+        <p>De frågar:</p>
+        <div class="callout-line">“Kan jag inte bara skicka brevet med posten eller mejla det?”</div>
+        <p>Men poängen med den här metoden är att du gör det lilla extra.</p>
+        <p>Du går dit. Du visar upp dig. Du visar att du bor nära. Du visar att du är beredd att anstränga dig.</p>
+        <p>Det är just detta som gör dig mer synlig än de flesta andra.</p>
+        <p>Om du bara skickar brevet försvinner en stor del av effekten.</p>
+      </section>
+
+      <section aria-labelledby="risk-rubrik">
+        <h2 id="risk-rubrik">Du minskar arbetsgivarens risk</h2>
+        <p>Att anställa någon är ofta en stor risk för arbetsgivaren.</p>
+        <p>Det kostar tid, pengar och energi.</p>
+        <p>Många arbetsgivare har varit med om felrekryteringar, dåliga referenser, personer som inte stannar eller sökande som inte egentligen vill ha jobbet.</p>
+        <p>Därför kan det kännas tryggare för arbetsgivaren att först möta dig enkelt och informellt.</p>
+        <p>När du lämnar din intresseanmälan personligen blir du mer verklig.</p>
+        <p>Du är inte bara ett dokument i en hög.</p>
+        <p>Du är en människa de har sett.</p>
+      </section>
+
+      <section aria-labelledby="fore-rubrik">
+        <h2 id="fore-rubrik">Du ligger före andra sökande</h2>
+        <p>När ett jobb annonseras kan hundratals eller tusentals personer söka samma tjänst.</p>
+        <p>Då blir konkurrensen enorm.</p>
+        <p>Men om du kontaktar företaget innan annonsen finns, kan situationen vara helt annorlunda.</p>
+        <p>Du kanske är ensam.</p>
+        <p>Du kanske redan finns i deras huvud när behovet uppstår.</p>
+        <p>Du kanske har hunnit skapa ett första intryck innan alla andra ens vet att möjligheten finns.</p>
+        <p>Det är en stor skillnad.</p>
+      </section>
+
+      <section aria-labelledby="noggrann-rubrik">
+        <h2 id="noggrann-rubrik">Var noggrann</h2>
+        <p>Fuska inte med förarbetet.</p>
+        <p>Gå inte bara runt och lämna papper slumpmässigt.</p>
+        <p>Du ska först ha:</p>
+        <ul class="text-list">
+          <li>valt företaget med omsorg</li>
+          <li>läst på om företaget</li>
+          <li>skrivit ett personligt brev</li>
+          <li>förklarat varför du vill arbeta just där</li>
+          <li>visat hur du kan bidra</li>
+          <li>lagt till din turboeffekt</li>
+          <li>förberett dig på att prata kort och tydligt</li>
+        </ul>
+        <p>Det ska märkas att du har gjort ditt arbete.</p>
+      </section>
+
+      <section aria-labelledby="saga-rubrik">
+        <h2 id="saga-rubrik">Vad du kan säga när du kommer dit</h2>
+        <p>Du kan säga något enkelt:</p>
+        <div class="callout-line">“Hej, jag heter [ditt namn]. Jag bor i närheten och är intresserad av att arbeta hos er om ni någon gång behöver hjälp, vikarie eller extra personal. Jag har tagit med en kort intresseanmälan. Vem är bäst att lämna den till?”</div>
+        <p>Om du får ett namn, skriv ner det direkt.</p>
+        <p>Om du får ett telefonnummer eller en e-postadress, skriv ner det också.</p>
+        <p>Det är viktigt för uppföljningen i kommande lektion.</p>
+      </section>
+
+      <section aria-labelledby="sjalvfortroende-rubrik">
+        <h2 id="sjalvfortroende-rubrik">Det här bygger självförtroende</h2>
+        <p>Det kan kännas ovant första gången.</p>
+        <p>Men när du har gjort det några gånger blir det lättare.</p>
+        <p>Du märker att de flesta människor är vänliga.</p>
+        <p>Du märker att du klarar mer än du tror.</p>
+        <p>Du börjar också känna dig mer aktiv och mindre beroende av annonser, system och mellanhänder.</p>
+        <p>Du skapar dina egna kontaktytor.</p>
+        <p>Det är mycket starkare än att bara vänta.</p>
+      </section>
+
+      <section aria-labelledby="nasta-rubrik">
+        <h2 id="nasta-rubrik">Nästa steg</h2>
+        <p>När du har lämnat din intresseanmälan är arbetet inte färdigt.</p>
+        <p>Du ska följa upp.</p>
+        <p>Du ska skriva in datumet i kalendern.</p>
+        <p>Du ska veta vem du kontaktade.</p>
+        <p>Du ska påminna företaget om att du finns.</p>
+        <p>Det går vi igenom i en kommande lektion.</p>
+      </section>
+
+      <section class="task-box" aria-labelledby="dagens-uppgift">
+        <h2 id="dagens-uppgift">Dagens uppgift</h2>
+        <p>Välj ett företag från din lista.</p>
+        <p>Kontrollera att du har:</p>
+        <ul class="task-list">
+          <li>läst på om företaget</li>
+          <li>skrivit ditt personliga brev</li>
+          <li>gjort ditt CV klart</li>
+          <li>lagt till turboeffekten från Lektion 8</li>
+          <li>skrivit ut dina dokument</li>
+          <li>lagt dem i ett A4-kuvert</li>
+          <li>skrivit företagets namn på kuvertet</li>
+        </ul>
+        <p>Gå sedan till företaget personligen.</p>
+        <p>Målet är:</p>
+        <ol class="number-list">
+          <li>Lämna kuvertet.</li>
+          <li>Visa upp dig.</li>
+          <li>Få namn och kontaktuppgift till rätt person.</li>
+        </ol>
+        <p>När du kommer hem skriver du ner exakt vad som hände.</p>
+      </section>
+
+      <div class="summary-wrap">
+        <section class="summary-box" aria-labelledby="sammanfattning">
+          <h3 id="sammanfattning">Sammanfattning</h3>
+          <p>Genom att kontakta företag innan de annonserar kan du minska konkurrensen och skapa egna möjligheter.</p>
+          <p>När du lämnar din intresseanmälan personligen visar du att du är seriös, aktiv och beredd att göra det lilla extra.</p>
+          <p>Du blir inte bara ett namn i en hög med ansökningar. Du blir en människa företaget har sett och kan komma ihåg när behovet uppstår.</p>
+        </section>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Lektionsnavigering">
+        <a class="button" href="lektion-8.html">Föregående lektion</a>
+        <a class="button" href="lektioner.html">Tillbaka till Lektioner</a>
+        <a class="button" href="lektion-10.html">Nästa lektion</a>
+      </nav>
+
+      <footer class="footer">
+        © Robert Espenkrona – 2000-talets nya metoder för arbetssökande
+      </footer>
+    </article>
+  </main>
+</body>
+</html>
+

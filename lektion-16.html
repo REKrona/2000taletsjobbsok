@@ -1,0 +1,491 @@
+﻿<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lektion 16 - Praktik</title>
+  <style>
+    :root {
+      --page-bg: #f5f1e8;
+      --text-bg: #ffffff;
+      --heading: #263844;
+      --text: #282828;
+      --muted: #5f6468;
+      --orange: #e97821;
+      --border: #dddddd;
+      --task-bg: #eaf5ef;
+      --quote-bg: #fff7ee;
+      --soft-button: #efefed;
+      --max-width: 900px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--page-bg);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+      padding: 36px 0 44px;
+    }
+
+    .lesson {
+      padding: 46px 52px 38px;
+      border-radius: 14px;
+      background: var(--text-bg);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 46px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav a {
+      padding: 9px 13px;
+      border: 1px solid #e7e1d7;
+      border-radius: 8px;
+      color: var(--heading);
+      background: #fbfaf7;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--orange);
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      color: var(--heading);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+      font-size: clamp(36px, 7vw, 54px);
+    }
+
+    h2 {
+      margin-top: 44px;
+      margin-bottom: 16px;
+      font-size: clamp(26px, 4vw, 34px);
+    }
+
+    h3 {
+      margin-bottom: 14px;
+      font-size: 25px;
+    }
+
+    p {
+      margin: 0 0 22px;
+      font-size: 18px;
+    }
+    .page-image {
+      display: block;
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      margin: 22px 0 34px;
+      border-radius: 12px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    }
+
+
+    .intro {
+      margin-bottom: 34px;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .text-list,
+    .task-list,
+    .number-list {
+      margin: 0 0 24px;
+      padding-left: 26px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .text-list li,
+    .task-list li,
+    .number-list li {
+      margin-bottom: 8px;
+      padding-left: 4px;
+    }
+
+    .example-box {
+      margin: 26px 0 28px;
+      padding: 22px 24px;
+      border-left: 5px solid var(--orange);
+      border-radius: 0 10px 10px 0;
+      background: var(--quote-bg);
+      color: var(--heading);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .task-box,
+    .summary-box {
+      margin: 38px 0 0;
+      padding: 28px;
+      border-radius: 12px;
+    }
+
+    .task-box {
+      border: 1px solid #cfe3d8;
+      background: var(--task-bg);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .task-box h2 {
+      margin-top: 0;
+    }
+
+    .summary-wrap {
+      margin-top: 42px;
+      padding: 28px;
+      border-radius: 14px;
+      background: #f0ece5;
+    }
+
+    .summary-box {
+      margin: 0;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .summary-box h3 {
+      margin-top: 0;
+      color: var(--orange);
+    }
+
+    .lesson-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 38px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .button,
+    .soon-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 13px 20px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button {
+      background: var(--orange);
+      color: #ffffff;
+    }
+
+    .soon-button {
+      background: var(--soft-button);
+      color: #686868;
+      cursor: default;
+    }
+
+    .button:focus-visible {
+      outline: 3px solid rgba(233, 120, 33, 0.35);
+      outline-offset: 3px;
+    }
+
+    .summary-box p:last-child,
+    .task-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .footer {
+      margin-top: 42px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 16px;
+      text-align: center;
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        width: min(100% - 24px, var(--max-width));
+        padding: 24px 0;
+      }
+
+      .lesson {
+        padding: 28px 22px 26px;
+        border-radius: 10px;
+      }
+
+      .nav {
+        margin-bottom: 34px;
+      }
+
+      .nav a {
+        flex: 1 1 calc(50% - 8px);
+        text-align: center;
+      }
+
+      .task-box,
+      .summary-box,
+      .summary-wrap {
+        padding: 22px;
+      }
+
+      .lesson-nav,
+      .button,
+      .soon-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <article class="lesson">
+      <nav class="nav" aria-label="Huvudmeny">
+        <a href="index.html">Startsida</a>
+        <a href="om-metoden.html">Om metoden</a>
+        <a href="lektioner.html">Lektioner</a>
+        <a href="om-robert.html">Om Robert</a>
+        <a href="kontakt.html">Köp lektioner</a>
+      </nav>
+
+      <p class="eyebrow">2000-talets nya metoder för arbetssökande</p>
+      <h1>Lektion 16 – Praktik</h1>
+        <img class="page-image" src="bilder/lektion-16.jpg" alt="Bild för lektion 16">
+      <p class="intro">En kort praktik kan vara ett bra sätt för både dig och arbetsgivaren att känna efter. Men praktik ska användas klokt. Den ska inte bli gratisarbete utan tydlig möjlighet.</p>
+
+      <section aria-labelledby="bra-rubrik">
+        <h2 id="bra-rubrik">Praktik kan vara bra</h2>
+        <p>I vissa situationer kan kort praktik vara mycket bra.</p>
+        <p>Arbetsgivaren får se vem du är, hur du fungerar och hur du tar dig an arbetsuppgifter.</p>
+        <p>Du får samtidigt möjlighet att se om arbetsplatsen passar dig.</p>
+        <p>Det är viktigt.</p>
+        <p>Du är inte bara där för att bli bedömd.</p>
+        <p>Du är också där för att själv bedöma företaget.</p>
+      </section>
+
+      <section aria-labelledby="utnyttjande-rubrik">
+        <h2 id="utnyttjande-rubrik">Kort praktik är något annat än utnyttjande</h2>
+        <p>En eller ett par dagar kan vara rimligt om syftet är tydligt.</p>
+        <p>Då kan båda parter känna efter.</p>
+        <p>Men flera veckor eller månader utan ersättning är något helt annat.</p>
+        <p>Det finns företag som använder praktikanter systematiskt utan verklig tanke på anställning.</p>
+        <p>Sådant ska du vara försiktig med.</p>
+        <p>Praktik ska vara en väg framåt, inte ett sätt för någon annan att få gratis arbetskraft.</p>
+      </section>
+
+      <section aria-labelledby="syfte-rubrik">
+        <h2 id="syfte-rubrik">Fråga alltid vad syftet är</h2>
+        <p>Innan du tackar ja till praktik ska du fråga:</p>
+        <ul class="text-list">
+          <li>Vad är syftet med praktiken?</li>
+          <li>Hur lång tid gäller det?</li>
+          <li>Vem ansvarar för mig?</li>
+          <li>Vad ska jag få prova på?</li>
+          <li>Finns det möjlighet till arbete efteråt?</li>
+          <li>Hur utvärderas praktiken?</li>
+          <li>När får jag besked om nästa steg?</li>
+        </ul>
+        <p>Om företaget inte kan svara tydligt bör du vara försiktig.</p>
+        <p>En seriös arbetsgivare bör kunna förklara varför praktiken finns och vad den kan leda till.</p>
+      </section>
+
+      <section aria-labelledby="bedoma-rubrik">
+        <h2 id="bedoma-rubrik">Du ska också bedöma företaget</h2>
+        <p>När du praktiserar ska du inte bara försöka göra ett gott intryck.</p>
+        <p>Du ska också observera.</p>
+        <p>Fråga dig:</p>
+        <ul class="text-list">
+          <li>verkar människor trivas här?</li>
+          <li>hur behandlas personalen?</li>
+          <li>hur behandlas kunderna?</li>
+          <li>verkar chefen tydlig?</li>
+          <li>finns det ordning?</li>
+          <li>finns det respekt?</li>
+          <li>passar arbetstiderna mig?</li>
+          <li>stämmer miljön med mina värderingar?</li>
+          <li>skulle jag vilja gå hit varje dag?</li>
+        </ul>
+        <p>Du ska se om du kan godkänna arbetsgivaren.</p>
+      </section>
+
+      <section aria-labelledby="varumarke-rubrik">
+        <h2 id="varumarke-rubrik">Använd ditt personliga varumärke</h2>
+        <p>Under praktiken visar du ditt personliga varumärke i verkligheten.</p>
+        <p>Det räcker inte längre att skriva att du är pålitlig, noggrann eller serviceinriktad.</p>
+        <p>Nu visar du det.</p>
+        <p>Du visar det genom att:</p>
+        <ul class="text-list">
+          <li>komma i tid</li>
+          <li>vara uppmärksam</li>
+          <li>ställa bra frågor</li>
+          <li>lyssna</li>
+          <li>vara vänlig</li>
+          <li>hjälpa till</li>
+          <li>göra ditt bästa</li>
+          <li>behandla kunder och kollegor väl</li>
+        </ul>
+        <p>Det är här ord blir handling.</p>
+      </section>
+
+      <section aria-labelledby="checklista-rubrik">
+        <h2 id="checklista-rubrik">Ha en egen checklista</h2>
+        <p>Gör gärna en egen checklista innan praktiken börjar.</p>
+        <p>På den kan du skriva sådant som är viktigt för dig.</p>
+        <p>Exempel:</p>
+        <ul class="text-list">
+          <li>bra bemötande</li>
+          <li>ordning och struktur</li>
+          <li>respekt för personalen</li>
+          <li>rimliga arbetstider</li>
+          <li>tydlig chef</li>
+          <li>bra kundsyn</li>
+          <li>möjlighet att lära sig</li>
+          <li>möjlighet till arbete</li>
+          <li>företagets värderingar</li>
+          <li>hur stress hanteras</li>
+        </ul>
+        <p>Efter varje dag kan du gå igenom listan och skriva några rader.</p>
+        <p>Det hjälper dig att fatta bättre beslut.</p>
+      </section>
+
+      <section aria-labelledby="smatt-rubrik">
+        <h2 id="smatt-rubrik">Mindre företag fungerar annorlunda</h2>
+        <p>I små företag kan det ibland vara mindre formellt.</p>
+        <p>Alla kanske gör allt.</p>
+        <p>Det kan vara rörigt, men också lärorikt.</p>
+        <p>Ett litet företag har ofta inte samma resurser som ett stort företag. Därför kan du inte alltid förvänta dig samma struktur.</p>
+        <p>Men du kan fortfarande titta på viktiga saker:</p>
+        <ul class="text-list">
+          <li>är människorna ärliga?</li>
+          <li>behandlar de kunder väl?</li>
+          <li>försöker de göra rätt?</li>
+          <li>finns det respekt?</li>
+          <li>finns det möjlighet att bidra?</li>
+        </ul>
+        <p>Små företag kan vara fantastiska arbetsplatser om kulturen är bra.</p>
+      </section>
+
+      <section aria-labelledby="granser-rubrik">
+        <h2 id="granser-rubrik">Sätt gränser</h2>
+        <p>Var hjälpsam, men var inte naiv.</p>
+        <p>Om praktiken bara fortsätter utan tydligt mål ska du fråga vad nästa steg är.</p>
+        <p>Du kan säga:</p>
+        <div class="example-box">“Jag tycker det är intressant att vara här och vill gärna förstå hur ni ser på fortsättningen. Finns det möjlighet till arbete efter praktiken, eller hur tänker ni framåt?”</div>
+        <p>Det är en sak att vara positiv.</p>
+        <p>Det är en annan sak att låta sig utnyttjas.</p>
+        <p>Du behöver vara både vänlig och tydlig.</p>
+      </section>
+
+      <section aria-labelledby="tecken-rubrik">
+        <h2 id="tecken-rubrik">När praktik är ett bra tecken</h2>
+        <p>Praktik kan vara ett bra tecken om:</p>
+        <ul class="text-list">
+          <li>arbetsgivaren är tydlig</li>
+          <li>perioden är kort</li>
+          <li>du får riktiga instruktioner</li>
+          <li>någon tar ansvar för dig</li>
+          <li>det finns ett möjligt behov</li>
+          <li>de följer upp med dig</li>
+          <li>de verkar seriöst intresserade</li>
+          <li>du själv känner att arbetsplatsen kan passa</li>
+        </ul>
+        <p>Då kan praktiken bli en mycket bra dörr in.</p>
+      </section>
+
+      <section aria-labelledby="nasta-rubrik">
+        <h2 id="nasta-rubrik">Nästa steg</h2>
+        <p>Efter praktiken behöver du kunna förstå dig själv ännu bättre.</p>
+        <p>Vilka värderingar styr dig?</p>
+        <p>Hur vill du uppträda?</p>
+        <p>Vad står ditt personliga varumärke för?</p>
+        <p>I nästa lektion går vi därför vidare till ditt varumärkes DNA.</p>
+      </section>
+
+      <section class="task-box" aria-labelledby="dagens-uppgift">
+        <h2 id="dagens-uppgift">Dagens uppgift</h2>
+        <p>Skapa en checklista med rubriken:</p>
+        <div class="example-box">Min praktik-checklista</div>
+        <p>Skriv ner vad som är viktigt för dig på en arbetsplats.</p>
+        <p>Ta med exempelvis:</p>
+        <ul class="task-list">
+          <li>bemötande</li>
+          <li>arbetsmiljö</li>
+          <li>chefens tydlighet</li>
+          <li>kollegor</li>
+          <li>kunder</li>
+          <li>arbetstider</li>
+          <li>möjlighet till anställning</li>
+          <li>företagets värderingar</li>
+          <li>vad du själv kan bidra med</li>
+        </ul>
+        <p>Skriv också ner tre frågor du vill ställa innan du tackar ja till praktik.</p>
+        <p>Exempel:</p>
+        <ol class="number-list">
+          <li>Hur lång är praktiken?</li>
+          <li>Vad är målet med praktiken?</li>
+          <li>Finns det möjlighet till arbete efteråt?</li>
+        </ol>
+      </section>
+
+      <div class="summary-wrap">
+        <section class="summary-box" aria-labelledby="sammanfattning">
+          <h3 id="sammanfattning">Sammanfattning</h3>
+          <p>Kort praktik kan vara ett bra sätt att visa vem du är och samtidigt utvärdera en potentiell arbetsplats.</p>
+          <p>Använd praktiken för att visa ditt personliga varumärke i handling, men var samtidigt vaksam mot företag som utnyttjar praktikanter utan verklig avsikt att anställa.</p>
+          <p>Var hjälpsam, seriös och tydlig med dina gränser.</p>
+        </section>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Lektionsnavigering">
+        <a class="button" href="lektion-15.html">Föregående lektion</a>
+        <a class="button" href="lektioner.html">Tillbaka till Lektioner</a>
+        <a class="button" href="lektion-17.html">Nästa lektion</a>
+      </nav>
+
+      <footer class="footer">
+        © Robert Espenkrona – 2000-talets nya metoder för arbetssökande
+      </footer>
+    </article>
+  </main>
+</body>
+</html>
+

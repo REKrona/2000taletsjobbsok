@@ -1,0 +1,418 @@
+﻿<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lektion 5 - Du behöver ett CV</title>
+  <style>
+    :root {
+      --page-bg: #f5f1e8;
+      --text-bg: #ffffff;
+      --heading: #263844;
+      --text: #282828;
+      --muted: #5f6468;
+      --orange: #e97821;
+      --border: #dddddd;
+      --task-bg: #eaf5ef;
+      --soft-button: #efefed;
+      --max-width: 900px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--page-bg);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+      padding: 36px 0 44px;
+    }
+
+    .lesson {
+      padding: 46px 52px 38px;
+      border-radius: 14px;
+      background: var(--text-bg);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 46px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav a {
+      padding: 9px 13px;
+      border: 1px solid #e7e1d7;
+      border-radius: 8px;
+      color: var(--heading);
+      background: #fbfaf7;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--orange);
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      color: var(--heading);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+      font-size: clamp(36px, 7vw, 54px);
+    }
+
+    h2 {
+      margin-top: 44px;
+      margin-bottom: 16px;
+      font-size: clamp(26px, 4vw, 34px);
+    }
+
+    h3 {
+      margin-bottom: 14px;
+      font-size: 25px;
+    }
+
+    p {
+      margin: 0 0 22px;
+      font-size: 18px;
+    }
+    .page-image {
+      display: block;
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      margin: 22px 0 34px;
+      border-radius: 12px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    }
+
+
+    .intro {
+      margin-bottom: 34px;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .text-list,
+    .task-list {
+      margin: 0 0 24px;
+      padding-left: 26px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .text-list li,
+    .task-list li {
+      margin-bottom: 8px;
+      padding-left: 4px;
+    }
+
+    .task-box,
+    .summary-box {
+      margin: 38px 0 0;
+      padding: 28px;
+      border-radius: 12px;
+    }
+
+    .task-box {
+      border: 1px solid #cfe3d8;
+      background: var(--task-bg);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .task-box h2 {
+      margin-top: 0;
+    }
+
+    .summary-wrap {
+      margin-top: 42px;
+      padding: 28px;
+      border-radius: 14px;
+      background: #f0ece5;
+    }
+
+    .summary-box {
+      margin: 0;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .summary-box h3 {
+      color: var(--orange);
+      margin-top: 0;
+    }
+
+    .lesson-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 38px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .button,
+    .soon-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 13px 20px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button {
+      background: var(--orange);
+      color: #ffffff;
+    }
+
+    .soon-button {
+      background: var(--soft-button);
+      color: #686868;
+      cursor: default;
+    }
+
+    .button:focus-visible {
+      outline: 3px solid rgba(233, 120, 33, 0.35);
+      outline-offset: 3px;
+    }
+
+    .summary-box p:last-child,
+    .task-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .footer {
+      margin-top: 42px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 16px;
+      text-align: center;
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        width: min(100% - 24px, var(--max-width));
+        padding: 24px 0;
+      }
+
+      .lesson {
+        padding: 28px 22px 26px;
+        border-radius: 10px;
+      }
+
+      .nav {
+        margin-bottom: 34px;
+      }
+
+      .nav a {
+        flex: 1 1 calc(50% - 8px);
+        text-align: center;
+      }
+
+      .task-box,
+      .summary-box,
+      .summary-wrap {
+        padding: 22px;
+      }
+
+      .lesson-nav,
+      .button,
+      .soon-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <article class="lesson">
+      <nav class="nav" aria-label="Huvudmeny">
+        <a href="index.html">Startsida</a>
+        <a href="om-metoden.html">Om metoden</a>
+        <a href="lektioner.html">Lektioner</a>
+        <a href="om-robert.html">Om Robert</a>
+        <a href="kontakt.html">Köp lektioner</a>
+      </nav>
+
+      <p class="eyebrow">2000-talets nya metoder för arbetssökande</p>
+      <h1>Lektion 5 – Du behöver ett CV</h1>
+        <img class="page-image" src="bilder/lektion-5.jpg" alt="Bild för lektion 5">
+      <p class="intro">Ditt CV ska ge arbetsgivaren en snabb och tydlig bild av vem du är, vad du har gjort och varför du kan vara intressant för jobbet.</p>
+
+      <section aria-labelledby="forsta-rubrik">
+        <h2 id="forsta-rubrik">CV:t ska vara lätt att förstå</h2>
+        <p>Ditt CV beskriver vad du har gjort, vilka utbildningar du har gått och vilka erfarenheter som är relevanta för jobbet du söker.</p>
+        <p>Det finns många mallar att använda. Välj en mall som är tydlig, lättläst och professionell.</p>
+        <p>Det viktigaste är inte att CV:t är spektakulärt.</p>
+        <p>Det viktigaste är att arbetsgivaren snabbt förstår:</p>
+        <ul class="text-list">
+          <li>vem du är</li>
+          <li>hur man kontaktar dig</li>
+          <li>vad du har arbetat med</li>
+          <li>vad du kan</li>
+          <li>varför du kan passa för jobbet</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="allt-rubrik">
+        <h2 id="allt-rubrik">Ta inte med allt</h2>
+        <p>Ett vanligt misstag är att ta med för mycket.</p>
+        <p>Du behöver inte skriva ner allt du har gjort i hela ditt liv.</p>
+        <p>Ta främst med det som är relevant för jobbet du söker.</p>
+        <p>Om du söker ett jobb inom service ska du lyfta fram erfarenheter av kunder, ansvar, bemötande, försäljning, samarbete och punktlighet.</p>
+        <p>Om du söker ett administrativt jobb ska du lyfta fram struktur, datorvana, ordning, dokumentation och kommunikation.</p>
+        <p>Anpassa CV:t efter det jobb du vill ha.</p>
+      </section>
+
+      <section aria-labelledby="arlig-rubrik">
+        <h2 id="arlig-rubrik">Var ärlig</h2>
+        <p>Idag vill många lägga in sitt CV och personliga brev i AI och låta det bli snyggare.</p>
+        <p>Det är helt okej att ta hjälp av verktyg.</p>
+        <p>Men uppgifterna måste vara sanna.</p>
+        <p>AI kan ibland försköna, förstärka eller formulera saker så att de låter bättre än de egentligen är.</p>
+        <p>Det kan bli ett problem.</p>
+        <p>En erfaren arbetsgivare eller HR-person kan ofta känna när texten låter överdriven eller opersonlig.</p>
+        <p>Använd gärna hjälpmedel, men kontrollera alltid att allt stämmer.</p>
+      </section>
+
+      <section aria-labelledby="fritid-rubrik">
+        <h2 id="fritid-rubrik">Fritidsintressen kan säga något om dig</h2>
+        <p>Dina fritidsintressen kan ibland berätta något viktigt om dig.</p>
+        <p>Om du spelar lagsport kan det visa att du är van att samarbeta.</p>
+        <p>Om du tränar ungdomar kan det visa att du tar ansvar och bryr dig om andra.</p>
+        <p>Om du är engagerad i föreningar kan det visa att du är aktiv och pålitlig.</p>
+        <p>Ta bara med sådant som faktiskt stärker bilden av dig och passar det jobb du söker.</p>
+      </section>
+
+      <section aria-labelledby="enkelt-rubrik">
+        <h2 id="enkelt-rubrik">Gör det enkelt för arbetsgivaren</h2>
+        <p>Du börjar redan i ansökan med att visa vem du är.</p>
+        <p>Ett bra CV hjälper arbetsgivaren.</p>
+        <p>Det är lättläst. Det är tydligt. Det är överskådligt. Det går snabbt att förstå.</p>
+        <p>Om arbetsgivaren måste leta efter ditt namn, telefonnummer eller vad du kan, har du gjort det svårare än nödvändigt.</p>
+        <p>Ditt namn och dina kontaktuppgifter ska vara tydliga direkt.</p>
+      </section>
+
+      <section aria-labelledby="design-rubrik">
+        <h2 id="design-rubrik">Undvik svårläst design</h2>
+        <p>Försök inte sticka ut genom att göra CV:t svårt att läsa.</p>
+        <p>Centrerad text, jättestora bokstäver, rörig layout eller för mycket färg kan göra mer skada än nytta.</p>
+        <p>Det kan kännas kreativt, men arbetsgivaren har ofta många ansökningar att läsa.</p>
+        <p>Då vinner det CV som är tydligt, rent och lätt att överblicka.</p>
+        <p>Läsbarhet är viktigare än nyskapande design.</p>
+      </section>
+
+      <section aria-labelledby="foto-rubrik">
+        <h2 id="foto-rubrik">Foto eller inte?</h2>
+        <p>Har du ett bra och aktuellt foto kan du använda det.</p>
+        <p>Det ska i så fall vara ett foto som representerar dig väl.</p>
+        <p>Använd inte ett foto som är fem eller tio år gammalt.</p>
+        <p>Har du inget foto du tycker om går det också bra att vara utan.</p>
+        <p>Det viktigaste är fortfarande innehållet, tydligheten och sanningen.</p>
+      </section>
+
+      <section aria-labelledby="mall-rubrik">
+        <h2 id="mall-rubrik">Spara din mall</h2>
+        <p>När du hittat en CV-mall du gillar ska du spara den i din jobbsökarmapp.</p>
+        <p>Du kan använda samma grundmall till många ansökningar.</p>
+        <p>Men innehållet bör justeras efter vilken typ av jobb du söker.</p>
+        <p>Spara gärna olika versioner om du söker olika sorters jobb.</p>
+        <p>Exempel:</p>
+        <ul class="text-list">
+          <li>CV service</li>
+          <li>CV administration</li>
+          <li>CV lager</li>
+          <li>CV butik</li>
+          <li>CV restaurang</li>
+        </ul>
+        <p>Då blir det lättare att arbeta snabbt och strukturerat.</p>
+      </section>
+
+      <section aria-labelledby="nasta-rubrik">
+        <h2 id="nasta-rubrik">Nästa steg</h2>
+        <p>När ditt CV är tydligt och färdigt har du en viktig grund.</p>
+        <p>Men CV:t visar främst vad du har gjort.</p>
+        <p>Nästa stora steg blir att hitta företag och skapa möjligheter där du kan använda dina erfarenheter.</p>
+      </section>
+
+      <section class="task-box" aria-labelledby="dagens-uppgift">
+        <h2 id="dagens-uppgift">Dagens uppgift</h2>
+        <p>Skapa eller uppdatera ditt CV.</p>
+        <p>Kontrollera att det innehåller:</p>
+        <ul class="task-list">
+          <li>namn</li>
+          <li>telefonnummer</li>
+          <li>e-post</li>
+          <li>relevant arbetslivserfarenhet</li>
+          <li>relevant utbildning</li>
+          <li>kurser</li>
+          <li>språk</li>
+          <li>datakunskaper</li>
+          <li>andra relevanta färdigheter</li>
+          <li>eventuella fritidsintressen som stärker bilden av dig</li>
+        </ul>
+        <p>Gå sedan igenom CV:t och ta bort sådant som inte hjälper dig att få det jobb du söker.</p>
+        <p>Spara dokumentet i din mapp för jobbsökandet.</p>
+      </section>
+
+      <div class="summary-wrap">
+        <section class="summary-box" aria-labelledby="sammanfattning">
+          <h3 id="sammanfattning">Sammanfattning</h3>
+          <p>Ett välstrukturerat och tydligt CV är din första chans att göra ett bra intryck.</p>
+          <p>Håll det sant, relevant och lättläst.</p>
+          <p>Välj en mall som representerar dig, men prioritera alltid tydlighet och överskådlighet framför avancerad design eller överdrivet AI-genererad text.</p>
+        </section>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Lektionsnavigering">
+        <a class="button" href="lektion-4.html">Föregående lektion</a>
+        <a class="button" href="lektioner.html">Tillbaka till Lektioner</a>
+        <a class="button" href="lektion-6.html">Nästa lektion</a>
+      </nav>
+
+      <footer class="footer">
+        © Robert Espenkrona – 2000-talets nya metoder för arbetssökande
+      </footer>
+    </article>
+  </main>
+</body>
+</html>
+

@@ -1,0 +1,481 @@
+﻿<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lektion 17 - Ditt varumärkes DNA</title>
+  <style>
+    :root {
+      --page-bg: #f5f1e8;
+      --text-bg: #ffffff;
+      --heading: #263844;
+      --text: #282828;
+      --muted: #5f6468;
+      --orange: #e97821;
+      --border: #dddddd;
+      --task-bg: #eaf5ef;
+      --quote-bg: #fff7ee;
+      --soft-button: #efefed;
+      --max-width: 900px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--page-bg);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+      padding: 36px 0 44px;
+    }
+
+    .lesson {
+      padding: 46px 52px 38px;
+      border-radius: 14px;
+      background: var(--text-bg);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 46px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav a {
+      padding: 9px 13px;
+      border: 1px solid #e7e1d7;
+      border-radius: 8px;
+      color: var(--heading);
+      background: #fbfaf7;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--orange);
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      color: var(--heading);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+      font-size: clamp(36px, 7vw, 54px);
+    }
+
+    h2 {
+      margin-top: 44px;
+      margin-bottom: 16px;
+      font-size: clamp(26px, 4vw, 34px);
+    }
+
+    h3 {
+      margin-bottom: 14px;
+      font-size: 25px;
+    }
+
+    p {
+      margin: 0 0 22px;
+      font-size: 18px;
+    }
+    .page-image {
+      display: block;
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      margin: 22px 0 34px;
+      border-radius: 12px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    }
+
+
+    .intro {
+      margin-bottom: 34px;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .text-list,
+    .task-list {
+      margin: 0 0 24px;
+      padding-left: 26px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .text-list li,
+    .task-list li {
+      margin-bottom: 8px;
+      padding-left: 4px;
+    }
+
+    .example-box {
+      margin: 26px 0 28px;
+      padding: 22px 24px;
+      border-left: 5px solid var(--orange);
+      border-radius: 0 10px 10px 0;
+      background: var(--quote-bg);
+      color: var(--heading);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .task-box,
+    .summary-box {
+      margin: 38px 0 0;
+      padding: 28px;
+      border-radius: 12px;
+    }
+
+    .task-box {
+      border: 1px solid #cfe3d8;
+      background: var(--task-bg);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .task-box h2 {
+      margin-top: 0;
+    }
+
+    .summary-wrap {
+      margin-top: 42px;
+      padding: 28px;
+      border-radius: 14px;
+      background: #f0ece5;
+    }
+
+    .summary-box {
+      margin: 0;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .summary-box h3 {
+      margin-top: 0;
+      color: var(--orange);
+    }
+
+    .lesson-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 38px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .button,
+    .soon-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 13px 20px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button {
+      background: var(--orange);
+      color: #ffffff;
+    }
+
+    .soon-button {
+      background: var(--soft-button);
+      color: #686868;
+      cursor: default;
+    }
+
+    .button:focus-visible {
+      outline: 3px solid rgba(233, 120, 33, 0.35);
+      outline-offset: 3px;
+    }
+
+    .summary-box p:last-child,
+    .task-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .footer {
+      margin-top: 42px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 16px;
+      text-align: center;
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        width: min(100% - 24px, var(--max-width));
+        padding: 24px 0;
+      }
+
+      .lesson {
+        padding: 28px 22px 26px;
+        border-radius: 10px;
+      }
+
+      .nav {
+        margin-bottom: 34px;
+      }
+
+      .nav a {
+        flex: 1 1 calc(50% - 8px);
+        text-align: center;
+      }
+
+      .task-box,
+      .summary-box,
+      .summary-wrap {
+        padding: 22px;
+      }
+
+      .lesson-nav,
+      .button,
+      .soon-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <article class="lesson">
+      <nav class="nav" aria-label="Huvudmeny">
+        <a href="index.html">Startsida</a>
+        <a href="om-metoden.html">Om metoden</a>
+        <a href="lektioner.html">Lektioner</a>
+        <a href="om-robert.html">Om Robert</a>
+        <a href="kontakt.html">Köp lektioner</a>
+      </nav>
+
+      <p class="eyebrow">2000-talets nya metoder för arbetssökande</p>
+      <h1>Lektion 17 – Ditt varumärkes DNA</h1>
+        <img class="page-image" src="bilder/lektion-17.jpg" alt="Bild för lektion 17">
+      <p class="intro">Ditt personliga varumärkes DNA är dina värderingar, principer och ditt sätt att agera. Det fungerar som en inre kompass i arbetslivet.</p>
+
+      <section aria-labelledby="dna-rubrik">
+        <h2 id="dna-rubrik">Vad menas med DNA?</h2>
+        <p>När vi pratar om ett företags DNA menar vi ofta företagets kultur, värderingar och sätt att agera.</p>
+        <p>På samma sätt kan du ha ett personligt DNA.</p>
+        <p>Det handlar om:</p>
+        <ul class="text-list">
+          <li>vad du står för</li>
+          <li>hur du vill behandla andra</li>
+          <li>hur du vill arbeta</li>
+          <li>vad du tycker är viktigt</li>
+          <li>hur du vill uppfattas</li>
+          <li>vilka gränser du har</li>
+          <li>vilken sorts medarbetare du vill vara</li>
+        </ul>
+        <p>Detta är viktigt oavsett om du är anställd, arbetssökande eller egenföretagare.</p>
+      </section>
+
+      <section aria-labelledby="kompass-rubrik">
+        <h2 id="kompass-rubrik">Din inre kompass</h2>
+        <p>När du vet vad du står för blir det lättare att fatta beslut.</p>
+        <p>Du vet bättre vilka företag du vill arbeta hos.</p>
+        <p>Du vet bättre hur du vill uppträda.</p>
+        <p>Du vet bättre vad du accepterar och inte accepterar.</p>
+        <p>Du får en inre kompass.</p>
+        <p>Den hjälper dig att hålla riktning även när situationer blir stressiga, otydliga eller svåra.</p>
+      </section>
+
+      <section aria-labelledby="kultur-rubrik">
+        <h2 id="kultur-rubrik">Alla arbetsplatser har kultur</h2>
+        <p>Alla arbetsplatser har någon form av kultur.</p>
+        <p>Den kan vara tydlig eller otydlig.</p>
+        <p>Den kan vara sund eller osund.</p>
+        <p>Den kan bygga människor eller bryta ner dem.</p>
+        <p>I vissa företag finns tydliga värderingar, gott ledarskap och respekt.</p>
+        <p>I andra företag finns otydlighet, dålig stämning, konflikter eller beteenden som skadar både människor och företagets rykte.</p>
+        <p>Därför är det viktigt att du själv vet vad du står för.</p>
+      </section>
+
+      <section aria-labelledby="representerar-rubrik">
+        <h2 id="representerar-rubrik">Du representerar alltid något</h2>
+        <p>När du arbetar representerar du inte bara företaget.</p>
+        <p>Du representerar också dig själv.</p>
+        <p>Ditt sätt att prata med kunder, kollegor och chefer säger något om dig.</p>
+        <p>Ditt sätt att hantera ansvar säger något om dig.</p>
+        <p>Ditt sätt att komma i tid, hålla löften och lösa problem säger något om dig.</p>
+        <p>Allt detta bygger eller skadar ditt personliga varumärke.</p>
+      </section>
+
+      <section aria-labelledby="fragor-rubrik">
+        <h2 id="fragor-rubrik">Frågor som hjälper dig hitta ditt DNA</h2>
+        <p>Svara på frågor som hjälper dig förstå hur du vill vara i arbetslivet.</p>
+        <p>Exempel:</p>
+        <ul class="text-list">
+          <li>Varför vill jag arbeta?</li>
+          <li>Vad vill jag bidra med?</li>
+          <li>Hur vill jag behandla kunder?</li>
+          <li>Hur vill jag behandla kollegor?</li>
+          <li>Hur vill jag att en chef ska uppfatta mig?</li>
+          <li>Vad betyder kvalitet för mig?</li>
+          <li>Vad betyder ärlighet för mig?</li>
+          <li>Hur hanterar jag klagomål?</li>
+          <li>Hur hanterar jag konflikter?</li>
+          <li>Hur vill jag agera när ingen ser?</li>
+          <li>Vad vill jag aldrig kompromissa med?</li>
+          <li>Vad vill jag vara känd för?</li>
+        </ul>
+        <p>Skriv svaren ärligt.</p>
+        <p>Det här är inte något du skriver för att imponera på någon annan.</p>
+        <p>Det är något du skriver för att förstå dig själv.</p>
+      </section>
+
+      <section aria-labelledby="syfte-rubrik">
+        <h2 id="syfte-rubrik">Ditt högre syfte</h2>
+        <p>Ett starkt personligt varumärke handlar inte bara om att få lön.</p>
+        <p>Det handlar också om hur du bidrar.</p>
+        <p>Du kan fråga dig:</p>
+        <ul class="text-list">
+          <li>Hur vill jag göra nytta?</li>
+          <li>Hur vill jag påverka människor omkring mig?</li>
+          <li>Hur vill jag bidra till kunder?</li>
+          <li>Hur vill jag bidra till arbetsplatsen?</li>
+          <li>Hur vill jag bidra till något större än mig själv?</li>
+        </ul>
+        <p>När arbetet får ett större syfte blir det ofta mer meningsfullt.</p>
+        <p>Det märks också på hur du uppträder.</p>
+      </section>
+
+      <section aria-labelledby="granser-rubrik">
+        <h2 id="granser-rubrik">Sätt gränser för dig själv</h2>
+        <p>Ditt DNA handlar inte bara om vad du vill göra.</p>
+        <p>Det handlar också om vad du inte vill göra.</p>
+        <p>Du kan till exempel bestämma:</p>
+        <ul class="text-list">
+          <li>Jag ljuger inte för kunder.</li>
+          <li>Jag kommer inte för sent utan att meddela.</li>
+          <li>Jag behandlar inte människor respektlöst.</li>
+          <li>Jag deltar inte i mobbning eller skvaller.</li>
+          <li>Jag representerar arbetsgivaren seriöst.</li>
+          <li>Jag gör inte slarvigt arbete medvetet.</li>
+          <li>Jag tar ansvar för mina misstag.</li>
+        </ul>
+        <p>Sådana principer gör dig tydligare som person.</p>
+      </section>
+
+      <section aria-labelledby="representation-rubrik">
+        <h2 id="representation-rubrik">På konferens, resa och representation</h2>
+        <p>Du representerar ditt namn även utanför den vanliga arbetsplatsen.</p>
+        <p>På konferenser, utbildningar, hotellövernattningar och företagsevent syns det också vem du är.</p>
+        <p>Om du uppträder dåligt påverkar det både företagets rykte och ditt eget namn.</p>
+        <p>Därför är det klokt att redan i förväg bestämma hur du vill uppträda.</p>
+        <p>Du är där för att representera dig själv och företaget, inte för att tappa kontrollen.</p>
+        <p>Sätt tydliga regler för dig själv kring alkohol vid konferens, resa och representation.</p>
+      </section>
+
+      <section aria-labelledby="trygghet-rubrik">
+        <h2 id="trygghet-rubrik">Tydlighet skapar trygghet</h2>
+        <p>När du har skrivit ner dina värderingar blir du tydligare för dig själv.</p>
+        <p>Det gör dig också tryggare i mötet med arbetsgivare.</p>
+        <p>Du vet bättre vad du vill säga ja till.</p>
+        <p>Du vet bättre vad du ska säga nej till.</p>
+        <p>Du vet bättre vilken sorts medarbetare du vill vara.</p>
+        <p>Det är en styrka.</p>
+      </section>
+
+      <section aria-labelledby="koppla-rubrik">
+        <h2 id="koppla-rubrik">Koppla ditt DNA till jobbet du söker</h2>
+        <p>När du söker jobb kan du använda delar av ditt personliga DNA i ditt personliga brev och på intervju.</p>
+        <p>Om du till exempel står för noggrannhet, ärlighet och gott kundbemötande kan du visa detta med konkreta exempel.</p>
+        <p>Skriv inte bara:</p>
+        <div class="example-box">“Jag är noggrann.”</div>
+        <p>Visa hur du är noggrann.</p>
+        <p>Skriv inte bara:</p>
+        <div class="example-box">“Jag är serviceinriktad.”</div>
+        <p>Visa hur du behandlar kunder.</p>
+        <p>Ditt DNA blir starkare när det syns i handling.</p>
+      </section>
+
+      <section aria-labelledby="nasta-rubrik">
+        <h2 id="nasta-rubrik">Nästa steg</h2>
+        <p>När du har förstått ditt personliga varumärke och ditt DNA är du bättre rustad för arbetslivet.</p>
+        <p>I nästa lektion går vi vidare till något som många glömmer efter att de fått jobb:</p>
+        <p>hur du dokumenterar ditt extra värde och förbereder dig för framtida löneförhandling.</p>
+      </section>
+
+      <section class="task-box" aria-labelledby="dagens-uppgift">
+        <h2 id="dagens-uppgift">Dagens uppgift</h2>
+        <p>Skapa ett dokument med rubriken:</p>
+        <div class="example-box">Mitt varumärkes DNA</div>
+        <p>Svara på dessa frågor:</p>
+        <ul class="task-list">
+          <li>Vad står jag för?</li>
+          <li>Vilka tre värderingar är viktigast för mig?</li>
+          <li>Hur vill jag behandla kunder?</li>
+          <li>Hur vill jag behandla kollegor?</li>
+          <li>Hur vill jag behandla min arbetsgivare?</li>
+          <li>Hur vill jag agera när något går fel?</li>
+          <li>Vad vill jag vara känd för?</li>
+          <li>Vad vill jag aldrig kompromissa med?</li>
+          <li>Hur vill jag bidra till en arbetsplats?</li>
+          <li>Vilken sorts person vill jag vara i arbetslivet?</li>
+        </ul>
+        <p>Skriv sedan en kort personlig principförklaring på 5–10 meningar.</p>
+        <p>Exempel:</p>
+        <div class="example-box">“Jag vill vara en person som är ärlig, pålitlig och hjälpsam. Jag vill göra mitt arbete noggrant och behandla både kunder och kollegor med respekt. Jag vill bidra till en arbetsplats där människor känner förtroende och där kvalitet är viktigare än genvägar.”</div>
+      </section>
+
+      <div class="summary-wrap">
+        <section class="summary-box" aria-labelledby="sammanfattning">
+          <h3 id="sammanfattning">Sammanfattning</h3>
+          <p>Ditt varumärkes DNA är dina värderingar, principer och ditt sätt att agera i arbetslivet.</p>
+          <p>När du vet vad du står för får du en inre kompass som hjälper dig att fatta bättre beslut, välja rätt arbetsgivare och bygga ett starkare personligt varumärke.</p>
+          <p>Tydliga värderingar hjälper dig att skapa förtroende, bättre relationer och större långsiktigt värde.</p>
+        </section>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Lektionsnavigering">
+        <a class="button" href="lektion-16.html">Föregående lektion</a>
+        <a class="button" href="lektioner.html">Tillbaka till Lektioner</a>
+        <a class="button" href="lektion-18.html">Nästa lektion</a>
+      </nav>
+
+      <footer class="footer">
+        © Robert Espenkrona – 2000-talets nya metoder för arbetssökande
+      </footer>
+    </article>
+  </main>
+</body>
+</html>
+

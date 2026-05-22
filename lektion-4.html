@@ -1,0 +1,501 @@
+﻿<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lektion 4 - Coacha dig själv</title>
+  <style>
+    :root {
+      --page-bg: #f5f1e8;
+      --text-bg: #ffffff;
+      --heading: #263844;
+      --text: #282828;
+      --muted: #5f6468;
+      --orange: #e97821;
+      --border: #dddddd;
+      --task-bg: #eaf5ef;
+      --soft-button: #efefed;
+      --max-width: 900px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--page-bg);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+      padding: 36px 0 44px;
+    }
+
+    .lesson {
+      padding: 46px 52px 38px;
+      border-radius: 14px;
+      background: var(--text-bg);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 46px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav a {
+      padding: 9px 13px;
+      border: 1px solid #e7e1d7;
+      border-radius: 8px;
+      color: var(--heading);
+      background: #fbfaf7;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--orange);
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      color: var(--heading);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+      font-size: clamp(36px, 7vw, 54px);
+    }
+
+    h2 {
+      margin-top: 44px;
+      margin-bottom: 16px;
+      font-size: clamp(26px, 4vw, 34px);
+    }
+
+    h3 {
+      margin-bottom: 14px;
+      font-size: 25px;
+    }
+
+    p {
+      margin: 0 0 22px;
+      font-size: 18px;
+    }
+    .page-image {
+      display: block;
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      margin: 22px 0 34px;
+      border-radius: 12px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    }
+
+
+    .intro {
+      margin-bottom: 34px;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .text-list,
+    .task-list {
+      margin: 0 0 24px;
+      padding-left: 26px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .text-list li,
+    .task-list li {
+      margin-bottom: 8px;
+      padding-left: 4px;
+    }
+
+    .callout-line {
+      margin: 24px 0;
+      padding: 18px 22px;
+      border-left: 5px solid var(--orange);
+      border-radius: 0 8px 8px 0;
+      background: #fff7ee;
+      color: var(--heading);
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .task-box,
+    .summary-box {
+      margin: 38px 0 0;
+      padding: 28px;
+      border-radius: 12px;
+    }
+
+    .task-box {
+      border: 1px solid #cfe3d8;
+      background: var(--task-bg);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .task-box h2 {
+      margin-top: 0;
+    }
+
+    .summary-wrap {
+      margin-top: 42px;
+      padding: 28px;
+      border-radius: 14px;
+      background: #f0ece5;
+    }
+
+    .summary-box {
+      margin: 0;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .summary-box h3 {
+      color: var(--orange);
+      margin-top: 0;
+    }
+
+    .lesson-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 38px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .button,
+    .soon-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 13px 20px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button {
+      background: var(--orange);
+      color: #ffffff;
+    }
+
+    .soon-button {
+      background: var(--soft-button);
+      color: #686868;
+      cursor: default;
+    }
+
+    .button:focus-visible {
+      outline: 3px solid rgba(233, 120, 33, 0.35);
+      outline-offset: 3px;
+    }
+
+    .summary-box p:last-child,
+    .task-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .footer {
+      margin-top: 42px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 16px;
+      text-align: center;
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        width: min(100% - 24px, var(--max-width));
+        padding: 24px 0;
+      }
+
+      .lesson {
+        padding: 28px 22px 26px;
+        border-radius: 10px;
+      }
+
+      .nav {
+        margin-bottom: 34px;
+      }
+
+      .nav a {
+        flex: 1 1 calc(50% - 8px);
+        text-align: center;
+      }
+
+      .task-box,
+      .summary-box,
+      .summary-wrap {
+        padding: 22px;
+      }
+
+      .lesson-nav,
+      .button,
+      .soon-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <article class="lesson">
+      <nav class="nav" aria-label="Huvudmeny">
+        <a href="index.html">Startsida</a>
+        <a href="om-metoden.html">Om metoden</a>
+        <a href="lektioner.html">Lektioner</a>
+        <a href="om-robert.html">Om Robert</a>
+        <a href="kontakt.html">Köp lektioner</a>
+      </nav>
+
+      <p class="eyebrow">2000-talets nya metoder för arbetssökande</p>
+      <h1>Lektion 4 – Coacha dig själv</h1>
+        <img class="page-image" src="bilder/lektion-4.jpg" alt="Bild för lektion 4">
+      <p class="intro">Nu är det dags att göra en grundlig genomgång av dig själv. Innan du söker jobb behöver du veta vad du kan, vad du har gjort, vad du tycker om och vilka jobb som är realistiska att få just nu.</p>
+
+      <section aria-labelledby="genomgang-rubrik">
+        <h2 id="genomgang-rubrik">Gör en total genomgång</h2>
+        <p>Ta fram ett nytt dokument och spara det i din mapp för jobbsökandet.</p>
+        <p>Döp dokumentet till:</p>
+        <div class="callout-line">Coacha mig själv</div>
+        <p>I det här dokumentet ska du samla allt som kan hjälpa dig att förstå vilka jobb du kan söka, vilka styrkor du har och vilka vägar som är mest realistiska framåt.</p>
+        <p>Målet är inte att drömma fritt utan att skapa en tydlig bild av var du står idag.</p>
+      </section>
+
+      <section aria-labelledby="utbildning-rubrik">
+        <h2 id="utbildning-rubrik">Din utbildning</h2>
+        <p>Börja med att skriva ner alla utbildningar du har gått.</p>
+        <p>Ta med:</p>
+        <ul class="text-list">
+          <li>namn på utbildningen</li>
+          <li>skola eller ansvarig</li>
+          <li>årtal</li>
+          <li>hur lång utbildningen var</li>
+          <li>vad du lärde dig</li>
+          <li>om utbildningen fortfarande är relevant idag</li>
+        </ul>
+        <p>Ta även med kortare kurser. Det kan vara allt från datakurser till kassaregister, truckkort, språk, service, vård, försäljning eller andra utbildningar du har gått.</p>
+        <p>Små kurser kan ibland vara mer värdefulla än du först tror.</p>
+      </section>
+
+      <section aria-labelledby="arbetsliv-rubrik">
+        <h2 id="arbetsliv-rubrik">Din arbetslivserfarenhet</h2>
+        <p>Skriv ner alla jobb du haft som kan vara användbara för det jobb du söker.</p>
+        <p>För varje jobb skriver du:</p>
+        <ul class="text-list">
+          <li>företag</li>
+          <li>titel</li>
+          <li>arbetsuppgifter</li>
+          <li>när du började</li>
+          <li>när du slutade</li>
+          <li>varför du slutade</li>
+          <li>vad du lärde dig</li>
+          <li>vilka resultat du bidrog till</li>
+          <li>vilka människor eller kunder du arbetade med</li>
+        </ul>
+        <p>Tänk brett. Erfarenhet handlar inte bara om titel. Det handlar också om ansvar, service, punktlighet, problemlösning, samarbete och hur du fungerar i verkliga situationer.</p>
+      </section>
+
+      <section aria-labelledby="sprak-rubrik">
+        <h2 id="sprak-rubrik">Språk och andra kunskaper</h2>
+        <p>Skriv ner vilka språk du kan.</p>
+        <p>Ta även med språk du bara kan lite av. Ett enkelt sätt är att använda skalan 1–5:</p>
+        <ul class="text-list">
+          <li>1 = kan lite</li>
+          <li>2 = kan enkla saker</li>
+          <li>3 = kan föra enklare samtal</li>
+          <li>4 = kan arbeta på språket</li>
+          <li>5 = talar mycket bra eller flytande</li>
+        </ul>
+        <p>Skriv också ner andra kunskaper du har, till exempel datorvana, praktiska färdigheter, kundkontakt, försäljning, administration, ekonomi, hantverk, matlagning, service eller annat.</p>
+      </section>
+
+      <section aria-labelledby="roligt-rubrik">
+        <h2 id="roligt-rubrik">Vad tycker du om att göra?</h2>
+        <p>Nu ska du skriva ner vad du tycker är roligt.</p>
+        <p>Om du fick göra vad du ville en dag, utan att tänka på kostnad eller begränsningar, vad skulle du göra då?</p>
+        <p>Det här handlar inte bara om fritid. Det handlar om energi.</p>
+        <p>Det du tycker om att göra kan visa något viktigt om vilka arbetsuppgifter, miljöer och människor som passar dig.</p>
+        <p>Skriv ner sådant som:</p>
+        <ul class="text-list">
+          <li>vad du tycker om att göra</li>
+          <li>vilka miljöer du trivs i</li>
+          <li>vilka människor du trivs med</li>
+          <li>vilka uppgifter som får tiden att gå snabbt</li>
+          <li>vad du gärna gör även om du inte får betalt</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="jobba-med-rubrik">
+        <h2 id="jobba-med-rubrik">Vad vill du jobba med?</h2>
+        <p>Skriv ner vilket jobb du helst skulle vilja ha.</p>
+        <p>Skriv också ner ditt drömjobb, även om det känns långt bort just nu.</p>
+        <p>Du behöver inte ha utbildning för det idag. Syftet är att förstå riktningen.</p>
+        <p>Svara sedan på dessa frågor:</p>
+        <ul class="text-list">
+          <li>Har jag utbildning för detta?</li>
+          <li>Har jag erfarenhet av detta?</li>
+          <li>Vad skulle jag behöva lära mig?</li>
+          <li>Hur lång tid skulle det ta?</li>
+          <li>Vad skulle det kosta?</li>
+          <li>Finns det en mindre roll i samma bransch där jag kan börja?</li>
+        </ul>
+        <p>Ibland går vägen till drömjobbet genom ett enklare jobb i rätt företag.</p>
+      </section>
+
+      <section aria-labelledby="foretagare-rubrik">
+        <h2 id="foretagare-rubrik">Vilka företagare känner du?</h2>
+        <p>Skriv ner alla personer du känner som har eget företag.</p>
+        <p>Det kan vara:</p>
+        <ul class="text-list">
+          <li>vänner</li>
+          <li>släktingar</li>
+          <li>gamla arbetskamrater</li>
+          <li>grannar</li>
+          <li>bekanta</li>
+          <li>personer från föreningar</li>
+          <li>människor du känner ytligt</li>
+        </ul>
+        <p>Fråga dig sedan:</p>
+        <ul class="text-list">
+          <li>Har jag berättat att jag söker jobb?</li>
+          <li>Kan jag kontakta dem?</li>
+          <li>Kan de behöva hjälpå</li>
+          <li>Känner de någon annan som behöver personal?</li>
+        </ul>
+        <p>Om du inte har frågat dem ännu, boka in i kalendern när du ska göra det.</p>
+      </section>
+
+      <section aria-labelledby="referenser-rubrik">
+        <h2 id="referenser-rubrik">Referenser</h2>
+        <p>Skriv ner vilka referenser du har.</p>
+        <p>Dela gärna upp dem i två delar:</p>
+        <p><strong>Skriftliga referenser:</strong></p>
+        <ul class="text-list">
+          <li>intyg</li>
+          <li>rekommendationsbrev</li>
+          <li>tidigare arbetsbetyg</li>
+        </ul>
+        <p><strong>Personliga referenser:</strong></p>
+        <ul class="text-list">
+          <li>namn</li>
+          <li>telefonnummer</li>
+          <li>e-post</li>
+          <li>relation till dig</li>
+          <li>vilket jobb eller sammanhang de känner dig från</li>
+        </ul>
+        <p>När du slutar ett jobb är det alltid bra att be om en skriftlig referens. Människor flyttar, byter telefonnummer, går i pension eller försvinner på andra sätt. En skriftlig referens finns kvar.</p>
+      </section>
+
+      <section aria-labelledby="realistisk-rubrik">
+        <h2 id="realistisk-rubrik">Var realistisk</h2>
+        <p>När du har gått igenom utbildning, erfarenhet, intressen, kontakter och referenser ska du börja se vilka jobb som är realistiska just nu.</p>
+        <p>Det betyder inte att du ska ge upp dina större mål.</p>
+        <p>Det betyder att du ska hitta en väg in.</p>
+        <p>Fråga dig:</p>
+        <ul class="text-list">
+          <li>Vilket jobb kan jag få med kort varsel?</li>
+          <li>Var kan jag snabbt göra nytta?</li>
+          <li>Vilket företag skulle kunna ha behov av mig?</li>
+          <li>Vilket jobb kan vara en första dörr in?</li>
+          <li>Kan jag börja enklare och sedan arbeta mig vidare?</li>
+        </ul>
+        <p>Om du har varit arbetslös länge kan det vara klokt att börja med ett jobb som är realistiskt att få nu, även om det inte är ditt slutmål.</p>
+        <p>När du väl är inne på ett företag kan du utvecklas, visa vad du kan och söka dig vidare internt eller externt.</p>
+      </section>
+
+      <section aria-labelledby="flera-vagar-rubrik">
+        <h2 id="flera-vagar-rubrik">Om du har flera möjliga vägar</h2>
+        <p>Om du har ungefär lika mycket erfarenhet av två olika arbeten kan du vara öppen med det.</p>
+        <p>Du kan till exempel skriva i ditt personliga brev:</p>
+        <div class="callout-line">“Jag har erfarenhet av både service och administration och är öppen för att hjälpa till där ni har störst och mest akut behov.”</div>
+        <p>Det visar flexibilitet.</p>
+        <p>I början är målet att komma in någonstans där du kan bidra, bygga förtroende och visa vem du är.</p>
+      </section>
+
+      <section aria-labelledby="nasta-rubrik">
+        <h2 id="nasta-rubrik">Nästa steg</h2>
+        <p>När du har gjort den här genomgången har du ett starkare underlag för nästa del.</p>
+        <p>Nu börjar det bli dags att skapa eller förbättra ditt CV.</p>
+        <p>Ett CV blir mycket lättare att skriva när du redan har kartlagt din utbildning, erfarenhet, styrkor och möjliga jobbriktning.</p>
+      </section>
+
+      <section class="task-box" aria-labelledby="dagens-uppgift">
+        <h2 id="dagens-uppgift">Dagens uppgift</h2>
+        <p>Skapa ett dokument som heter:</p>
+        <div class="callout-line">Coacha mig själv</div>
+        <p>Skriv ner svar på följande områden:</p>
+        <ul class="task-list">
+          <li>Mina utbildningar</li>
+          <li>Mina kurser</li>
+          <li>Mina datakunskaper</li>
+          <li>Mina tidigare arbeten</li>
+          <li>Mina språk</li>
+          <li>Mina styrkor</li>
+          <li>Mina intressen</li>
+          <li>Mitt drömjobb</li>
+          <li>Realistiska jobb jag kan söka nu</li>
+          <li>Personer jag känner som har företag</li>
+          <li>Mina referenser</li>
+        </ul>
+        <p>När du är klar, välj ut tre jobb eller branscher som känns mest realistiska att börja med.</p>
+      </section>
+
+      <div class="summary-wrap">
+        <section class="summary-box" aria-labelledby="sammanfattning">
+          <h3 id="sammanfattning">Sammanfattning</h3>
+          <p>Genom en grundlig självanalys kan du identifiera dina styrkor, erfarenheter och realistiska jobbmöjligheter.</p>
+          <p>Var ärlig mot dig själv om vad du kan, vad du vill och vad som är möjligt just nu.</p>
+          <p>Satsa först på att hitta en ingång i arbetslivet som matchar dina faktiska kompetenser. När du väl är inne kan du utvecklas vidare därifrån.</p>
+        </section>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Lektionsnavigering">
+        <a class="button" href="lektion-3.html">Föregående lektion</a>
+        <a class="button" href="lektioner.html">Tillbaka till Lektioner</a>
+        <a class="button" href="lektion-5.html">Nästa lektion</a>
+      </nav>
+
+      <footer class="footer">
+        © Robert Espenkrona – 2000-talets nya metoder för arbetssökande
+      </footer>
+    </article>
+  </main>
+</body>
+</html>
+

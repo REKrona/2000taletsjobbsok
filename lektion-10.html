@@ -1,0 +1,437 @@
+﻿<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lektion 10 - Turboeffekt nr 3: FA-skatt</title>
+  <style>
+    :root {
+      --page-bg: #f5f1e8;
+      --text-bg: #ffffff;
+      --heading: #263844;
+      --text: #282828;
+      --muted: #5f6468;
+      --orange: #e97821;
+      --border: #dddddd;
+      --task-bg: #eaf5ef;
+      --quote-bg: #fff7ee;
+      --soft-button: #efefed;
+      --max-width: 900px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--page-bg);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+      padding: 36px 0 44px;
+    }
+
+    .lesson {
+      padding: 46px 52px 38px;
+      border-radius: 14px;
+      background: var(--text-bg);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 46px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav a {
+      padding: 9px 13px;
+      border: 1px solid #e7e1d7;
+      border-radius: 8px;
+      color: var(--heading);
+      background: #fbfaf7;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--orange);
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      color: var(--heading);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+      font-size: clamp(36px, 7vw, 54px);
+    }
+
+    h2 {
+      margin-top: 44px;
+      margin-bottom: 16px;
+      font-size: clamp(26px, 4vw, 34px);
+    }
+
+    h3 {
+      margin-bottom: 14px;
+      font-size: 25px;
+    }
+
+    p {
+      margin: 0 0 22px;
+      font-size: 18px;
+    }
+    .page-image {
+      display: block;
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      margin: 22px 0 34px;
+      border-radius: 12px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    }
+
+
+    .intro {
+      margin-bottom: 34px;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .text-list,
+    .task-list {
+      margin: 0 0 24px;
+      padding-left: 26px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .text-list li,
+    .task-list li {
+      margin-bottom: 8px;
+      padding-left: 4px;
+    }
+
+    .step-lines p {
+      margin-bottom: 8px;
+      color: var(--heading);
+      font-weight: 700;
+    }
+
+    .example-box {
+      margin: 26px 0 28px;
+      padding: 22px 24px;
+      border-left: 5px solid var(--orange);
+      border-radius: 0 10px 10px 0;
+      background: var(--quote-bg);
+      color: var(--heading);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .task-box,
+    .summary-box {
+      margin: 38px 0 0;
+      padding: 28px;
+      border-radius: 12px;
+    }
+
+    .task-box {
+      border: 1px solid #cfe3d8;
+      background: var(--task-bg);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .task-box h2 {
+      margin-top: 0;
+    }
+
+    .summary-wrap {
+      margin-top: 42px;
+      padding: 28px;
+      border-radius: 14px;
+      background: #f0ece5;
+    }
+
+    .summary-box {
+      margin: 0;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .summary-box h3 {
+      margin-top: 0;
+      color: var(--orange);
+    }
+
+    .lesson-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 38px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .button,
+    .soon-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 13px 20px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button {
+      background: var(--orange);
+      color: #ffffff;
+    }
+
+    .soon-button {
+      background: var(--soft-button);
+      color: #686868;
+      cursor: default;
+    }
+
+    .button:focus-visible {
+      outline: 3px solid rgba(233, 120, 33, 0.35);
+      outline-offset: 3px;
+    }
+
+    .summary-box p:last-child,
+    .task-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .footer {
+      margin-top: 42px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 16px;
+      text-align: center;
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        width: min(100% - 24px, var(--max-width));
+        padding: 24px 0;
+      }
+
+      .lesson {
+        padding: 28px 22px 26px;
+        border-radius: 10px;
+      }
+
+      .nav {
+        margin-bottom: 34px;
+      }
+
+      .nav a {
+        flex: 1 1 calc(50% - 8px);
+        text-align: center;
+      }
+
+      .task-box,
+      .summary-box,
+      .summary-wrap {
+        padding: 22px;
+      }
+
+      .lesson-nav,
+      .button,
+      .soon-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <article class="lesson">
+      <nav class="nav" aria-label="Huvudmeny">
+        <a href="index.html">Startsida</a>
+        <a href="om-metoden.html">Om metoden</a>
+        <a href="lektioner.html">Lektioner</a>
+        <a href="om-robert.html">Om Robert</a>
+        <a href="kontakt.html">Köp lektioner</a>
+      </nav>
+
+      <p class="eyebrow">2000-talets nya metoder för arbetssökande</p>
+      <h1>Lektion 10 – Turboeffekt nr 3: FA-skatt</h1>
+        <img class="page-image" src="bilder/lektion-10.jpg" alt="Bild för lektion 10">
+      <p class="intro">I den här lektionen får du lära dig hur FA-skatt kan göra det enklare för ett företag att prova dig utan att behöva anställa dig direkt.</p>
+
+      <section aria-labelledby="enklare-rubrik">
+        <h2 id="enklare-rubrik">Gör det enklare att säga ja</h2>
+        <p>En arbetsgivare kan ibland vara intresserad av dig men ändå tveka inför en anställning.</p>
+        <p>Det kan bero på att företaget är litet, att behovet är osäkert eller att de inte vill ta en risk innan de vet hur du fungerar.</p>
+        <p>Då kan FA-skatt i vissa fall göra det lättare för företaget att prova dig.</p>
+        <p>Du behöver då inte alltid bli anställd från första dagen. Du kan i vissa situationer fakturera för det arbete du gör.</p>
+      </section>
+
+      <section aria-labelledby="vad-rubrik">
+        <h2 id="vad-rubrik">Vad är FA-skatt?</h2>
+        <p>FA-skatt betyder att du kan ha både F-skatt och A-skatt.</p>
+        <p>A-skatt används när du är anställd.</p>
+        <p>F-skatt används när du arbetar som egen företagare och fakturerar för ditt arbete.</p>
+        <p>Med FA-skatt kan du alltså både vara anställd och samtidigt ha möjlighet att fakturera företag för uppdrag.</p>
+        <p>Detta kan vara användbart om du vill kunna hoppa in kortare perioder, göra tillfälliga uppdrag eller hjälpa flera företag vid behov.</p>
+      </section>
+
+      <section aria-labelledby="arbetsgivare-rubrik">
+        <h2 id="arbetsgivare-rubrik">Varför arbetsgivare kan gilla detta</h2>
+        <p>För vissa företag kan det kännas enklare att ta in någon på uppdrag först.</p>
+        <p>De får möjlighet att se:</p>
+        <ul class="text-list">
+          <li>hur du arbetar</li>
+          <li>om du passar in</li>
+          <li>om du kommer i tid</li>
+          <li>om du är pålitlig</li>
+          <li>om du lär dig snabbt</li>
+          <li>om du skapar värde</li>
+        </ul>
+        <p>När företaget lärt känna dig kan det senare leda till anställning om båda parter vill det.</p>
+        <p>Det här kan minska tröskeln för arbetsgivaren.</p>
+      </section>
+
+      <section aria-labelledby="ansvar-rubrik">
+        <h2 id="ansvar-rubrik">Du tar ansvar</h2>
+        <p>Om du har FA-skatt visar du också att du är aktiv och försöker skapa egna möjligheter.</p>
+        <p>Du visar att du inte bara väntar på att någon ska ge dig ett jobb.</p>
+        <p>Du försöker göra det lättare för arbetsgivaren att säga ja.</p>
+        <p>Det kan göra dig mer intressant, särskilt för mindre företag som behöver hjälp men är försiktiga med anställningar.</p>
+      </section>
+
+      <section aria-labelledby="ekonomi-rubrik">
+        <h2 id="ekonomi-rubrik">Tänk på ekonomin</h2>
+        <p>Om du fakturerar själv behöver du förstå att hela beloppet inte är din lön.</p>
+        <p>Du ska själv ta ansvar för skatt, sociala avgifter och andra kostnader.</p>
+        <p>Därför är det viktigt att läsa på ordentligt innan du använder FA-skatt.</p>
+        <p>Du kan börja med att titta på information hos Skatteverket och Verksamt.se.</p>
+        <p>Räkna inte bara på vad du fakturerar per timme. Räkna på vad som blir kvar efter skatt och avgifter.</p>
+      </section>
+
+      <section aria-labelledby="ersattning-rubrik">
+        <h2 id="ersattning-rubrik">Begär inte för mycket i början</h2>
+        <p>När du är ny hos ett företag är första målet ofta att komma in.</p>
+        <p>Begär därför inte för hög ersättning i början.</p>
+        <p>Det viktigaste är att få chansen att visa vem du är, hur du arbetar och vilket värde du kan skapa.</p>
+        <p>När arbetsgivaren upptäcker att du är värdefull blir det lättare att diskutera bättre ersättning eller anställning senare.</p>
+        <div class="step-lines">
+          <p>Steg ett är att komma in.</p>
+          <p>Steg två är att bevisa ditt värde.</p>
+          <p>Steg tre är att förhandla bättre villkor.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="konto-rubrik">
+        <h2 id="konto-rubrik">Separat konto</h2>
+        <p>Om du börjar fakturera kan det vara klokt att ha ett separat bankkonto för dessa pengar.</p>
+        <p>Det behöver inte nödvändigtvis vara ett dyrt företagskonto i början, men du bör hålla pengarna tydligt åtskilda från din privata vardagsekonomi.</p>
+        <p>Då blir det lättare att se:</p>
+        <ul class="text-list">
+          <li>vad som kommit in</li>
+          <li>vad som ska sparas till skatt</li>
+          <li>vad som är verkligt överskott</li>
+          <li>vilka uppdrag som lönar sig</li>
+        </ul>
+        <p>Ordning ger kontroll.</p>
+      </section>
+
+      <section aria-labelledby="forsiktig-rubrik">
+        <h2 id="forsiktig-rubrik">Var försiktig och läs på</h2>
+        <p>FA-skatt kan vara ett bra verktyg, men det passar inte alla situationer.</p>
+        <p>Du ska inte använda det utan att förstå reglerna.</p>
+        <p>Läs på hos myndigheter, kontrollera vad som gäller och fråga om hjälp om du är osäker.</p>
+        <p>Det viktigaste är att du gör rätt från början.</p>
+        <p>Syftet är inte att krångla till livet. Syftet är att skapa fler möjliga vägar in i arbete.</p>
+      </section>
+
+      <section aria-labelledby="brev-rubrik">
+        <h2 id="brev-rubrik">Hur du kan skriva i ditt personliga brev</h2>
+        <p>Du kan exempelvis skriva:</p>
+        <div class="example-box">Om det passar er bättre i början kan jag fakturera via FA-skatt, så att vi kan prova samarbetet innan en eventuell anställning.</div>
+        <p>Anpassa texten efter din situation och efter vilken typ av jobb du söker.</p>
+        <p>Skriv bara detta om det faktiskt är något du är beredd att undersöka och förstå.</p>
+      </section>
+
+      <section aria-labelledby="nasta-rubrik">
+        <h2 id="nasta-rubrik">Nästa steg</h2>
+        <p>Nu har du lärt dig ännu ett sätt att sänka tröskeln för arbetsgivaren.</p>
+        <p>I nästa lektion går vi vidare till vad som händer efter att du lämnat din intresseanmälan.</p>
+        <p>Då handlar det om uppföljning, kalender och att hålla kontakten levande.</p>
+      </section>
+
+      <section class="task-box" aria-labelledby="dagens-uppgift">
+        <h2 id="dagens-uppgift">Dagens uppgift</h2>
+        <p>Ta reda på vad FA-skatt innebär.</p>
+        <p>Gå till Skatteverket eller Verksamt.se och läs grunderna.</p>
+        <p>Skriv sedan ner svar på dessa frågor:</p>
+        <ul class="task-list">
+          <li>Skulle FA-skatt kunna vara aktuellt för mig?</li>
+          <li>Vilka typer av jobb eller uppdrag skulle jag kunna fakturera för?</li>
+          <li>Vilken timnivå verkar rimlig i min bransch?</li>
+          <li>Vad behöver jag förstå om skatt och avgifter?</li>
+          <li>Vill jag nämna detta i mitt personliga brev eller vänta?</li>
+        </ul>
+        <p>Skriv en kort formulering som du eventuellt kan lägga in i ditt personliga brev.</p>
+      </section>
+
+      <div class="summary-wrap">
+        <section class="summary-box" aria-labelledby="sammanfattning">
+          <h3 id="sammanfattning">Sammanfattning</h3>
+          <p>FA-skatt kan i vissa fall göra det enklare för ett företag att prova dig utan att anställa dig direkt.</p>
+          <p>Det kan minska arbetsgivarens risk och ge dig en möjlighet att visa ditt värde i verkligheten.</p>
+          <p>Men du måste förstå regler, skatt och ansvar innan du använder det. Läs på noggrant och använd det bara om det passar din situation.</p>
+        </section>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Lektionsnavigering">
+        <a class="button" href="lektion-9.html">Föregående lektion</a>
+        <a class="button" href="lektioner.html">Tillbaka till Lektioner</a>
+        <a class="button" href="lektion-11.html">Nästa lektion</a>
+      </nav>
+
+      <footer class="footer">
+        © Robert Espenkrona – 2000-talets nya metoder för arbetssökande
+      </footer>
+    </article>
+  </main>
+</body>
+</html>
+

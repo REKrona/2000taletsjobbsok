@@ -1,0 +1,347 @@
+﻿<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lektion 1 – Dina problem</title>
+  <style>
+    :root {
+      --page-bg: #f5f1e8;
+      --text-bg: #ffffff;
+      --heading: #263844;
+      --text: #282828;
+      --muted: #5f6468;
+      --orange: #e97821;
+      --border: #dddddd;
+      --task-bg: #eaf5ef;
+      --max-width: 850px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--page-bg);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    .page {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+      padding: 48px 0;
+    }
+
+    .lesson {
+      padding: 52px;
+      border-radius: 14px;
+      background: var(--text-bg);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 46px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav a {
+      padding: 9px 13px;
+      border: 1px solid #e7e1d7;
+      border-radius: 8px;
+      color: var(--heading);
+      background: #fbfaf7;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--orange);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      color: var(--heading);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+      font-size: clamp(36px, 7vw, 54px);
+    }
+
+    h2 {
+      margin-top: 44px;
+      margin-bottom: 16px;
+      font-size: clamp(26px, 4vw, 34px);
+    }
+
+    h3 {
+      margin-bottom: 14px;
+      font-size: 25px;
+    }
+
+    p {
+      margin: 0 0 22px;
+      font-size: 18px;
+    }
+    .page-image {
+      display: block;
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      margin: 22px 0 34px;
+      border-radius: 12px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    }
+
+
+    .intro {
+      margin-bottom: 34px;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .question-list {
+      margin: 4px 0 28px;
+      padding: 0;
+      list-style: none;
+      color: var(--heading);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.7;
+    }
+
+    .callout-line {
+      margin: 24px 0;
+      padding: 18px 22px;
+      border-left: 5px solid var(--orange);
+      border-radius: 0 8px 8px 0;
+      background: #fff7ee;
+      color: var(--heading);
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .task-box,
+    .summary-box {
+      margin: 38px 0 0;
+      padding: 28px;
+      border-radius: 12px;
+    }
+
+    .task-box {
+      border: 1px solid #cfe3d8;
+      background: var(--task-bg);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .task-box h2 {
+      margin-top: 0;
+    }
+
+    .summary-wrap {
+      margin-top: 42px;
+      padding: 28px;
+      border-radius: 14px;
+      background: #f0ece5;
+    }
+
+    .summary-box {
+      margin: 0;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .summary-box h3 {
+      color: var(--orange);
+      margin-top: 0;
+    }
+
+    .lesson-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 38px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 13px 20px;
+      border-radius: 10px;
+      background: var(--orange);
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button:focus-visible {
+      outline: 3px solid rgba(233, 120, 33, 0.35);
+      outline-offset: 3px;
+    }
+
+    .summary-box p:last-child,
+    .task-box p:last-child,
+    .lesson > p:last-child {
+      margin-bottom: 0;
+    }
+
+    .footer {
+      margin-top: 42px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 16px;
+      text-align: center;
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        width: min(100% - 24px, var(--max-width));
+        padding: 24px 0;
+      }
+
+      .lesson {
+        padding: 30px 22px;
+        border-radius: 10px;
+      }
+
+      .task-box,
+      .summary-box,
+      .summary-wrap {
+        padding: 22px;
+      }
+
+      .nav {
+        margin-bottom: 34px;
+      }
+
+      .nav a {
+        flex: 1 1 calc(50% - 8px);
+        text-align: center;
+      }
+
+      .lesson-nav,
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <article class="lesson">
+      <nav class="nav" aria-label="Huvudmeny">
+        <a href="index.html">Startsida</a>
+        <a href="om-metoden.html">Om metoden</a>
+        <a href="lektioner.html">Lektioner</a>
+        <a href="om-robert.html">Om Robert</a>
+        <a href="kontakt.html">Köp lektioner</a>
+      </nav>
+
+      <p class="eyebrow">2000-talets nya metoder för arbetssökande</p>
+      <h1>Lektion 1 – Dina problem</h1>
+        <img class="page-image" src="bilder/lektion-1.jpg" alt="Bild för lektion 1">
+      <p class="intro">Det första steget i ett tryggare jobbsökande är att få ordning på det som snurrar i huvudet. När du skriver ner problemen blir de lättare att förstå, prioritera och hantera.</p>
+
+      <p>När du blir arbetslös fylls huvudet ofta av tankar, oro och frågor.</p>
+
+      <ul class="question-list">
+        <li>Hur ska ekonomin gå?</li>
+        <li>Vad ska jag göra först?</li>
+        <li>Vilka jobb kan jag söka?</li>
+        <li>Hur länge kommer det här att pågå?</li>
+      </ul>
+
+      <p>Det första steget är därför inte att kasta sig ut och söka jobb direkt. Det första steget är att skapa kontroll.</p>
+
+      <h2>Töm huvudet</h2>
+      <p>En mycket viktig sak för att du ska må bra är att tömma och avlasta ditt huvud.</p>
+      <p>När huvudet är fullt av problem snurrar ofta samma tankar runt, om och om igen. Det tar energi och gör det svårare att tänka klart.</p>
+      <p>En enkel men mycket effektiv metod är att skapa en mapp på din dator. Döp den till exempel till:</p>
+      <div class="callout-line">Nytt jobb</div>
+      <p>Öppna sedan ett Word-dokument och skriv rubriken:</p>
+      <div class="callout-line">Mina problem</div>
+      <p>Här skriver du ner alla problem du har. Stora som små. Utan att rangordna dem i början.</p>
+      <p>Det kan handla om ekonomi, oro, praktiska saker, kontakter, utbildning, familj, hälsa eller något annat som påverkar dig just nu.</p>
+
+      <h2>Skriv ner allt</h2>
+      <p>Varje gång du kommer på ett nytt problem skriver du in det i listan.</p>
+      <p>Kommer du på något när du är ute och går kan du prata in det i telefonen och skriva in det i dokumentet när du kommer hem.</p>
+      <p>Efter ett tag brukar något intressant hända.</p>
+      <p>Du upptäcker ofta att problemen inte var lika många som det kändes. Och kanske inte heller lika stora som de kändes när de bara snurrade runt i huvudet.</p>
+      <p>När du får ner tankarna på papper blir du tryggare. Du behöver inte längre vara rädd för att glömma något. Problemen finns nu i tryggt förvar.</p>
+      <p>Ännu bättre är om du skriver ut listan och har den framför dig på skrivbordet.</p>
+      <p>Då ser du den. Du har kontroll. Och huvudet kan börja vila.</p>
+
+      <h2>Rangordna problemen</h2>
+      <p>När du har skrivit ner allt kan du börja rangordna problemen.</p>
+      <p>Sätt nummer 1 på det som är viktigast eller mest akut. Sätt nummer 2 på nästa. Fortsätt tills du har en tydlig ordning.</p>
+      <p>Nu kan du ta ett problem i taget.</p>
+      <p>Du behöver inte lösa hela livet på en gång. Du behöver bara börja med nästa viktiga sak.</p>
+      <p>På så sätt kan du ligga lite före och ta hand om det som är mest akut först. Efterhand blir listan kortare. Ibland blir man nästan förvånad över hur mycket lugnare allt känns när problemen inte längre bara finns i huvudet.</p>
+
+      <h2>Varför detta fungerar</h2>
+      <p>Det här är ett knep jag själv använder så fort jag känner att jag har för mycket i huvudet.</p>
+      <p>När jag skriver ner allt får jag kontroll. Huvudet blir friare och nya tankar får plats. Ofta kommer också nya lösningar fram, lösningar som tidigare inte fick plats eftersom huvudet var upptaget med att älta samma saker.</p>
+      <p>Jag införde detta moment i mina grupper och blev förbluffad över hur effektivt det fungerade. Många deltagare fick fram nya idéer när huvudet blev tommare och lugnare.</p>
+
+      <h2>Viktigt</h2>
+      <p>Om du fortsätter att älta trots att du har skrivit ner dina problem kan det vara ett tecken på att du behöver mer stöd.</p>
+      <p>Då ska du inte tveka att ta kontakt med någon som kan hjälpa dig professionellt.</p>
+      <p>Att be om hjälp är inte ett misslyckande. Det är ett sätt att ta ansvar för sig själv.</p>
+
+      <section class="task-box" aria-labelledby="dagens-uppgift">
+        <h2 id="dagens-uppgift">Dagens uppgift</h2>
+        <p>Skapa en mapp på din dator och döp den till:</p>
+        <div class="callout-line">Nytt jobb</div>
+        <p>Skapa sedan ett Word-dokument och döp det till:</p>
+        <div class="callout-line">Mina problem</div>
+        <p>Skriv ner alla problem, orosmoment och saker du behöver ta tag i. Rangordna dem sedan från viktigast till minst viktigt.</p>
+        <p>Börja därefter med nummer 1.</p>
+      </section>
+
+      <div class="summary-wrap">
+        <section class="summary-box" aria-labelledby="sammanfattning">
+          <h3 id="sammanfattning">Sammanfattning</h3>
+          <p>Att skriva ner och organisera dina problem är ett kraftfullt verktyg för att minska mental belastning.</p>
+          <p>När du får problemen ur huvudet och ner på papper skapar du utrymme för nya idéer och lösningar.</p>
+          <p>Prioritera dina utmaningar och ta itu med dem systematiskt. Då kan du gradvis återta kontrollen över din situation.</p>
+        </section>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Lektionsnavigering">
+        <a class="button" href="lektioner.html">Tillbaka till Lektioner</a>
+        <a class="button" href="lektion-2.html">Nästa lektion</a>
+      </nav>
+
+      <footer class="footer">
+        © Robert Espenkrona – 2000-talets nya metoder för arbetssökande
+      </footer>
+    </article>
+  </main>
+</body>
+</html>
+

@@ -1,0 +1,530 @@
+﻿<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lektion 18 - Årlig löneförhandling</title>
+  <style>
+    :root {
+      --page-bg: #f5f1e8;
+      --text-bg: #ffffff;
+      --heading: #263844;
+      --text: #282828;
+      --muted: #5f6468;
+      --orange: #e97821;
+      --border: #dddddd;
+      --task-bg: #eaf5ef;
+      --quote-bg: #fff7ee;
+      --max-width: 900px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--page-bg);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+      padding: 36px 0 44px;
+    }
+
+    .lesson {
+      padding: 46px 52px 38px;
+      border-radius: 14px;
+      background: var(--text-bg);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 46px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav a {
+      padding: 9px 13px;
+      border: 1px solid #e7e1d7;
+      border-radius: 8px;
+      color: var(--heading);
+      background: #fbfaf7;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--orange);
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      color: var(--heading);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+      font-size: clamp(36px, 7vw, 54px);
+    }
+
+    h2 {
+      margin-top: 44px;
+      margin-bottom: 16px;
+      font-size: clamp(26px, 4vw, 34px);
+    }
+
+    h3 {
+      margin-bottom: 14px;
+      font-size: 25px;
+    }
+
+    p {
+      margin: 0 0 22px;
+      font-size: 18px;
+    }
+    .page-image {
+      display: block;
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      margin: 22px 0 34px;
+      border-radius: 12px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    }
+
+
+    .intro {
+      margin-bottom: 34px;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .text-list,
+    .task-list {
+      margin: 0 0 24px;
+      padding-left: 26px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .text-list li,
+    .task-list li {
+      margin-bottom: 8px;
+      padding-left: 4px;
+    }
+
+    .compact-lines p {
+      margin-bottom: 8px;
+    }
+
+    .example-box {
+      margin: 26px 0 28px;
+      padding: 22px 24px;
+      border-left: 5px solid var(--orange);
+      border-radius: 0 10px 10px 0;
+      background: var(--quote-bg);
+      color: var(--heading);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .task-box,
+    .summary-box {
+      margin: 38px 0 0;
+      padding: 28px;
+      border-radius: 12px;
+    }
+
+    .task-box {
+      border: 1px solid #cfe3d8;
+      background: var(--task-bg);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .task-box h2 {
+      margin-top: 0;
+    }
+
+    .summary-wrap {
+      margin-top: 42px;
+      padding: 28px;
+      border-radius: 14px;
+      background: #f0ece5;
+    }
+
+    .summary-box {
+      margin: 0;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .summary-box h3 {
+      margin-top: 0;
+      color: var(--orange);
+    }
+
+    .lesson-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 38px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 13px 20px;
+      border-radius: 10px;
+      background: var(--orange);
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button:focus-visible {
+      outline: 3px solid rgba(233, 120, 33, 0.35);
+      outline-offset: 3px;
+    }
+
+    .summary-box p:last-child,
+    .task-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .footer {
+      margin-top: 42px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 16px;
+      text-align: center;
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        width: min(100% - 24px, var(--max-width));
+        padding: 24px 0;
+      }
+
+      .lesson {
+        padding: 28px 22px 26px;
+        border-radius: 10px;
+      }
+
+      .nav {
+        margin-bottom: 34px;
+      }
+
+      .nav a {
+        flex: 1 1 calc(50% - 8px);
+        text-align: center;
+      }
+
+      .task-box,
+      .summary-box,
+      .summary-wrap {
+        padding: 22px;
+      }
+
+      .lesson-nav,
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <article class="lesson">
+      <nav class="nav" aria-label="Huvudmeny">
+        <a href="index.html">Startsida</a>
+        <a href="om-metoden.html">Om metoden</a>
+        <a href="lektioner.html">Lektioner</a>
+        <a href="om-robert.html">Om Robert</a>
+        <a href="kontakt.html">Köp lektioner</a>
+      </nav>
+
+      <p class="eyebrow">2000-talets nya metoder för arbetssökande</p>
+      <h1>Lektion 18 – Årlig löneförhandling</h1>
+        <img class="page-image" src="bilder/lektion-18.jpg" alt="Bild för lektion 18">
+      <p class="intro">När du har fått ett jobb är nästa steg att fortsätta bygga ditt värde. Genom att dokumentera vad du bidrar med blir du bättre förberedd inför framtida lönesamtal och utvecklingssamtal.</p>
+
+      <section aria-labelledby="inte-slutet-rubrik">
+        <h2 id="inte-slutet-rubrik">Jobbet är inte slutet på metoden</h2>
+        <p>När du får ett jobb är mycket vunnet.</p>
+        <p>Men arbetet med ditt personliga varumärke fortsätter.</p>
+        <p>Nu börjar nästa fas.</p>
+        <div class="compact-lines">
+          <p>Du ska visa vem du är i praktiken.</p>
+          <p>Du ska bidra.</p>
+          <p>Du ska lära dig.</p>
+          <p>Du ska bli värdefull.</p>
+          <p>Och du ska dokumentera det du gör.</p>
+        </div>
+        <p>Många tänker först på lön när det är dags för lönesamtal.</p>
+        <p>Det är för sent.</p>
+        <p>Du ska börja samla underlag redan från första dagen.</p>
+      </section>
+
+      <section aria-labelledby="arbetsbeskrivning-rubrik">
+        <h2 id="arbetsbeskrivning-rubrik">Be om en arbetsbeskrivning</h2>
+        <p>När du börjar en ny anställning är det bra att be om en tydlig arbetsbeskrivning.</p>
+        <p>Den bör visa:</p>
+        <ul class="text-list">
+          <li>vilka arbetsuppgifter du har</li>
+          <li>vad som förväntas av dig</li>
+          <li>vilka mål som finns</li>
+          <li>vilket ansvar du har</li>
+          <li>vem du rapporterar till</li>
+          <li>hur arbetet ska följas upp</li>
+        </ul>
+        <p>Detta hjälper dig att förstå vad som ingår i tjänsten.</p>
+        <p>Det hjälper dig också senare när du vill visa vad du har gjort utöver det förväntade.</p>
+      </section>
+
+      <section aria-labelledby="extra-varde-rubrik">
+        <h2 id="extra-varde-rubrik">Dokumentera ditt extra värde</h2>
+        <p>Varje dag eller varje vecka kan du skriva ner saker du gjort som skapat extra värde.</p>
+        <p>Det kan vara att du:</p>
+        <ul class="text-list">
+          <li>hjälpt en kund extra bra</li>
+          <li>löst ett problem</li>
+          <li>tagit ansvar utanför din vanliga roll</li>
+          <li>hjälpt en kollega</li>
+          <li>förbättrat en rutin</li>
+          <li>kommit med en idé</li>
+          <li>sparat tid</li>
+          <li>minskat kostnader</li>
+          <li>skapat bättre ordning</li>
+          <li>tagit hand om en svår situation</li>
+          <li>bidragit till bättre stämning</li>
+        </ul>
+        <p>Det behöver inte vara stora saker.</p>
+        <p>Små saker blir mycket när de samlas över tid.</p>
+      </section>
+
+      <section aria-labelledby="vana-rubrik">
+        <h2 id="vana-rubrik">Gör det till en vana</h2>
+        <p>Sätt av en kort stund efter arbetsdagen eller i slutet av veckan.</p>
+        <p>Skriv ner vad du har gjort.</p>
+        <p>Du kan använda ett Word-dokument, Google Docs, anteckningar i telefonen eller prata in det och skriva rent senare.</p>
+        <p>Döp dokumentet till exempelvis:</p>
+        <div class="example-box">Mitt extra arbete</div>
+        <p>Skriv månad och år.</p>
+        <p>Under varje månad samlar du korta noteringar.</p>
+        <p>När månaden är slut gör du en liten sammanfattning.</p>
+      </section>
+
+      <section aria-labelledby="tolv-rubrik">
+        <h2 id="tolv-rubrik">Tolv månadsberättelser</h2>
+        <p>Om du gör detta varje månad har du efter ett år tolv korta berättelser om ditt bidrag.</p>
+        <p>Det är mycket starkare än att komma till lönesamtalet och bara säga:</p>
+        <div class="example-box">“Jag tycker att jag borde få högre lön.”</div>
+        <p>Nu kan du visa konkret vad du har gjort.</p>
+        <div class="compact-lines">
+          <p>Du har exempel.</p>
+          <p>Du har datum.</p>
+          <p>Du har situationer.</p>
+          <p>Du har resultat.</p>
+        </div>
+        <p>Det gör samtalet mer sakligt.</p>
+      </section>
+
+      <section aria-labelledby="a4-rubrik">
+        <h2 id="a4-rubrik">Förbered en A4-sida</h2>
+        <p>Inför det årliga lönesamtalet kan du sammanställa dina viktigaste bidrag på en enda A4-sida.</p>
+        <p>Den ska vara kort, tydlig och lätt att läsa.</p>
+        <p>Ta med exempel på:</p>
+        <ul class="text-list">
+          <li>extra ansvar</li>
+          <li>förbättringar</li>
+          <li>kundnytta</li>
+          <li>problemlösning</li>
+          <li>idéer</li>
+          <li>besparingar</li>
+          <li>resultat</li>
+          <li>utveckling</li>
+          <li>saker du lärt dig</li>
+          <li>hur du bidragit till företaget</li>
+        </ul>
+        <p>Målet är inte att skryta.</p>
+        <p>Målet är att visa värde.</p>
+      </section>
+
+      <section aria-labelledby="chefen-rubrik">
+        <h2 id="chefen-rubrik">Gör samtalet enklare för chefen</h2>
+        <p>Din chef har mycket att tänka på.</p>
+        <p>Chefen kanske inte ser allt du gör.</p>
+        <p>Genom att dokumentera och sammanfatta hjälper du chefen att förstå ditt bidrag.</p>
+        <p>Du gör lönesamtalet mer konkret.</p>
+        <p>Du visar också att du är strukturerad, seriös och tänker långsiktigt.</p>
+        <p>Det är ofta uppskattat.</p>
+      </section>
+
+      <section aria-labelledby="pengar-rubrik">
+        <h2 id="pengar-rubrik">Om företaget säger att det inte finns pengar</h2>
+        <p>Ibland får man svaret:</p>
+        <div class="example-box">“Det finns tyvärr inte mer pengar.”</div>
+        <p>Det kan vara sant.</p>
+        <p>Men det kan också vara en standardfras.</p>
+        <p>Om du har visat ditt värde tydligt kan du ändå ha stärkt din position.</p>
+        <p>Kanske får du inte högre lön direkt.</p>
+        <p>Men du kan få:</p>
+        <ul class="text-list">
+          <li>mer ansvar</li>
+          <li>bättre arbetstider</li>
+          <li>utbildning</li>
+          <li>större frihet</li>
+          <li>bättre schema</li>
+          <li>möjlighet att utvecklas</li>
+          <li>bättre förmåner</li>
+          <li>starkare position i företaget</li>
+        </ul>
+        <p>Allt värde syns inte bara i lönekuvertet direkt.</p>
+      </section>
+
+      <section aria-labelledby="skyddar-rubrik">
+        <h2 id="skyddar-rubrik">Ditt värde skyddar dig också</h2>
+        <p>När ett företag måste minska personalen tittar man ofta på vilka som är mest värdefulla.</p>
+        <p>Om du är en person som dokumenterat, bidragit, tagit ansvar och byggt förtroende kan det stärka din position.</p>
+        <p>Det är aldrig en garanti.</p>
+        <p>Men det är bättre att vara känd som en person som bidrar än som en person som bara gör minsta möjliga.</p>
+        <p>Ditt personliga varumärke arbetar även här.</p>
+      </section>
+
+      <section aria-labelledby="smaktig-rubrik">
+        <h2 id="smaktig-rubrik">Var inte småaktig</h2>
+        <p>Samtidigt är det viktigt att inte bli småaktig.</p>
+        <p>I mindre företag kan alla behöva hjälpa till med mycket.</p>
+        <p>Där kan “utanför arbetsbeskrivningen” vara en naturlig del av vardagen.</p>
+        <p>Var klok.</p>
+        <p>Dokumentera ditt värde, men förstå också företagets verklighet.</p>
+        <p>Målet är inte att räkna varje minut.</p>
+        <p>Målet är att visa att du bidrar mer än förväntat över tid.</p>
+      </section>
+
+      <section aria-labelledby="langsiktigt-rubrik">
+        <h2 id="langsiktigt-rubrik">Tänk långsiktigt</h2>
+        <p>När du arbetar på detta sätt bygger du långsamt ett starkare namn.</p>
+        <p>Du blir mer medveten om vad du gör.</p>
+        <p>Du ser själv hur du utvecklas.</p>
+        <p>Du får bättre underlag för samtal med chefen.</p>
+        <p>Du kan också använda materialet senare när du söker nya jobb, skriver CV eller ber om referenser.</p>
+        <p>Det är alltså inte bara bra för lönen.</p>
+        <p>Det är bra för hela din framtida arbetsmarknad.</p>
+      </section>
+
+      <section aria-labelledby="programmet-rubrik">
+        <h2 id="programmet-rubrik">Programmet fortsätter i verkligheten</h2>
+        <p>De tidigare lektionerna har hjälpt dig att söka jobb på ett mer strukturerat sätt.</p>
+        <p>Den här lektionen hjälper dig att fortsätta växa när du väl har kommit in.</p>
+        <p>Du har nu lärt dig att:</p>
+        <div class="example-box">
+          <ul class="text-list">
+            <li>skapa kontroll</li>
+            <li>strukturera din vardag</li>
+            <li>förstå din ekonomi</li>
+            <li>kartlägga dig själv</li>
+            <li>skapa CV</li>
+            <li>hitta företag</li>
+            <li>skriva personligt brev</li>
+            <li>lämna intresseanmälan</li>
+            <li>följa upp</li>
+            <li>tänka långsiktigt</li>
+            <li>bygga ditt varumärke</li>
+            <li>förstå dina värderingar</li>
+            <li>dokumentera ditt värde</li>
+          </ul>
+        </div>
+        <p>Det är detta som gör metoden hel.</p>
+      </section>
+
+      <section class="task-box" aria-labelledby="dagens-uppgift">
+        <h2 id="dagens-uppgift">Dagens uppgift</h2>
+        <p>Skapa ett dokument med rubriken:</p>
+        <div class="example-box">Mitt extra arbete</div>
+        <p>Skriv sedan ner exempel på sådant du vill dokumentera när du får arbete:</p>
+        <ul class="task-list">
+          <li>extra ansvar</li>
+          <li>bra kundmöten</li>
+          <li>problem du löst</li>
+          <li>idéer du bidragit med</li>
+          <li>förbättringar du gjort</li>
+          <li>saker du lärt dig</li>
+          <li>situationer där du hjälpt andra</li>
+          <li>resultat du varit delaktig i</li>
+        </ul>
+        <p>Skapa också en mall med 12 rubriker:</p>
+        <div class="compact-lines">
+          <p>Januari</p>
+          <p>Februari</p>
+          <p>Mars</p>
+          <p>April</p>
+          <p>Maj</p>
+          <p>Juni</p>
+          <p>Juli</p>
+          <p>Augusti</p>
+          <p>September</p>
+          <p>Oktober</p>
+          <p>November</p>
+          <p>December</p>
+        </div>
+        <p>Under varje månad ska du senare kunna skriva korta noteringar om ditt bidrag.</p>
+      </section>
+
+      <div class="summary-wrap">
+        <section class="summary-box" aria-labelledby="sammanfattning">
+          <h3 id="sammanfattning">Sammanfattning</h3>
+          <p>Dokumentera kontinuerligt ditt extra bidrag och värde på arbetsplatsen.</p>
+          <p>Genom att systematiskt registrera hur du går utöver förväntningarna skapar du ett starkt underlag för framtida lönesamtal och utvecklingssamtal.</p>
+          <p>Detta arbetssätt stärker inte bara dina chanser till bättre lön, utan också ditt personliga varumärke, din anställningstrygghet och dina framtida möjligheter.</p>
+        </section>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Lektionsnavigering">
+        <a class="button" href="lektion-17.html">Föregående lektion</a>
+        <a class="button" href="lektioner.html">Tillbaka till Lektioner</a>
+        <a class="button" href="index.html">Tillbaka till startsidan</a>
+      </nav>
+
+      <footer class="footer">
+        © Robert Espenkrona – 2000-talets nya metoder för arbetssökande
+      </footer>
+    </article>
+  </main>
+</body>
+</html>
+

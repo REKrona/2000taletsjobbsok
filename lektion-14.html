@@ -1,0 +1,492 @@
+﻿<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lektion 14 - Intervju</title>
+  <style>
+    :root {
+      --page-bg: #f5f1e8;
+      --text-bg: #ffffff;
+      --heading: #263844;
+      --text: #282828;
+      --muted: #5f6468;
+      --orange: #e97821;
+      --border: #dddddd;
+      --task-bg: #eaf5ef;
+      --quote-bg: #fff7ee;
+      --soft-button: #efefed;
+      --max-width: 900px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--page-bg);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+      padding: 36px 0 44px;
+    }
+
+    .lesson {
+      padding: 46px 52px 38px;
+      border-radius: 14px;
+      background: var(--text-bg);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 46px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav a {
+      padding: 9px 13px;
+      border: 1px solid #e7e1d7;
+      border-radius: 8px;
+      color: var(--heading);
+      background: #fbfaf7;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--orange);
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      color: var(--heading);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+      font-size: clamp(36px, 7vw, 54px);
+    }
+
+    h2 {
+      margin-top: 44px;
+      margin-bottom: 16px;
+      font-size: clamp(26px, 4vw, 34px);
+    }
+
+    h3 {
+      margin-bottom: 14px;
+      font-size: 25px;
+    }
+
+    p {
+      margin: 0 0 22px;
+      font-size: 18px;
+    }
+    .page-image {
+      display: block;
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      margin: 22px 0 34px;
+      border-radius: 12px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    }
+
+
+    .intro {
+      margin-bottom: 34px;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .text-list,
+    .task-list {
+      margin: 0 0 24px;
+      padding-left: 26px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .text-list li,
+    .task-list li {
+      margin-bottom: 8px;
+      padding-left: 4px;
+    }
+
+    .compact-lines p {
+      margin-bottom: 8px;
+    }
+
+    .example-box {
+      margin: 26px 0 28px;
+      padding: 22px 24px;
+      border-left: 5px solid var(--orange);
+      border-radius: 0 10px 10px 0;
+      background: var(--quote-bg);
+      color: var(--heading);
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .task-box,
+    .summary-box {
+      margin: 38px 0 0;
+      padding: 28px;
+      border-radius: 12px;
+    }
+
+    .task-box {
+      border: 1px solid #cfe3d8;
+      background: var(--task-bg);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .task-box h2 {
+      margin-top: 0;
+    }
+
+    .summary-wrap {
+      margin-top: 42px;
+      padding: 28px;
+      border-radius: 14px;
+      background: #f0ece5;
+    }
+
+    .summary-box {
+      margin: 0;
+      border: 1px solid var(--border);
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .summary-box h3 {
+      margin-top: 0;
+      color: var(--orange);
+    }
+
+    .lesson-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 38px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .button,
+    .soon-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 13px 20px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button {
+      background: var(--orange);
+      color: #ffffff;
+    }
+
+    .soon-button {
+      background: var(--soft-button);
+      color: #686868;
+      cursor: default;
+    }
+
+    .button:focus-visible {
+      outline: 3px solid rgba(233, 120, 33, 0.35);
+      outline-offset: 3px;
+    }
+
+    .summary-box p:last-child,
+    .task-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .footer {
+      margin-top: 42px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 16px;
+      text-align: center;
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        width: min(100% - 24px, var(--max-width));
+        padding: 24px 0;
+      }
+
+      .lesson {
+        padding: 28px 22px 26px;
+        border-radius: 10px;
+      }
+
+      .nav {
+        margin-bottom: 34px;
+      }
+
+      .nav a {
+        flex: 1 1 calc(50% - 8px);
+        text-align: center;
+      }
+
+      .task-box,
+      .summary-box,
+      .summary-wrap {
+        padding: 22px;
+      }
+
+      .lesson-nav,
+      .button,
+      .soon-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <article class="lesson">
+      <nav class="nav" aria-label="Huvudmeny">
+        <a href="index.html">Startsida</a>
+        <a href="om-metoden.html">Om metoden</a>
+        <a href="lektioner.html">Lektioner</a>
+        <a href="om-robert.html">Om Robert</a>
+        <a href="kontakt.html">Köp lektioner</a>
+      </nav>
+
+      <p class="eyebrow">2000-talets nya metoder för arbetssökande</p>
+      <h1>Lektion 14 – Intervju</h1>
+        <img class="page-image" src="bilder/lektion-14.jpg" alt="Bild för lektion 14">
+      <p class="intro">Intervjun är inte ett förhör. Det är ett möte mellan dig och en arbetsgivare där båda parter försöker förstå om ni passar för varandra.</p>
+
+      <section aria-labelledby="fiende-rubrik">
+        <h2 id="fiende-rubrik">Intervjun är inte din fiende</h2>
+        <p>Många blir nervösa inför en intervju.</p>
+        <p>Det är förståeligt.</p>
+        <p>Men det är viktigt att komma ihåg att du inte möter en fiende.</p>
+        <p>Du möter en person som har ett problem att lösa. Företaget behöver kanske personal, hjälp, avlastning eller rätt person på rätt plats.</p>
+        <p>Om du har följt de tidigare lektionerna har du redan gjort mycket av arbetet innan intervjun börjar.</p>
+        <div class="compact-lines">
+          <p>Du har läst på.</p>
+          <p>Du har valt företaget med omsorg.</p>
+          <p>Du har skrivit ett personligt brev.</p>
+          <p>Du har visat att du vill bidra.</p>
+          <p>Du har kanske redan varit där och lämnat din intresseanmälan.</p>
+        </div>
+        <p>Det gör att intervjun kan bli mycket lugnare.</p>
+      </section>
+
+      <section aria-labelledby="valja-rubrik">
+        <h2 id="valja-rubrik">Du är också där för att välja</h2>
+        <p>Många tänker att intervjun bara handlar om att arbetsgivaren ska bedöma dig.</p>
+        <p>Men du ska också bedöma arbetsgivaren.</p>
+        <p>Du ska fråga dig:</p>
+        <ul class="text-list">
+          <li>verkar det här vara en bra arbetsplats?</li>
+          <li>verkar chefen seriös?</li>
+          <li>verkar människorna trivas?</li>
+          <li>passar arbetsuppgifterna mig?</li>
+          <li>kan jag bidra här?</li>
+          <li>kan jag tänka mig att gå hit en måndag morgon?</li>
+        </ul>
+        <p>Du är inte bara där för att bli vald.</p>
+        <p>Du är också där för att se om du själv kan godkänna företaget.</p>
+      </section>
+
+      <section aria-labelledby="las-pa-rubrik">
+        <h2 id="las-pa-rubrik">Läs på innan intervjun</h2>
+        <p>Innan du går på intervju ska du läsa på om företaget igen.</p>
+        <p>Gå igenom:</p>
+        <ul class="text-list">
+          <li>företagets hemsida</li>
+          <li>produkter och tjänster</li>
+          <li>kunder</li>
+          <li>nyheter</li>
+          <li>sociala medier</li>
+          <li>kontaktpersoner</li>
+          <li>vad du själv gillar med företaget</li>
+          <li>varför du vill arbeta där</li>
+          <li>hur dina erfarenheter passar in</li>
+        </ul>
+        <p>När du kan prata om företaget på ett naturligt sätt märks det.</p>
+        <p>Det visar att du är seriös.</p>
+      </section>
+
+      <section aria-labelledby="fragor-rubrik">
+        <h2 id="fragor-rubrik">Var beredd på vanliga frågor</h2>
+        <p>Du kan ofta få frågor som:</p>
+        <ul class="text-list">
+          <li>Berätta lite om dig själv.</li>
+          <li>Varför vill du arbeta hos oss?</li>
+          <li>Vad har du gjort tidigare?</li>
+          <li>Vad är du bra på?</li>
+          <li>Vad tycker du är svårt?</li>
+          <li>När kan du börja?</li>
+          <li>Varför söker du det här jobbet?</li>
+          <li>Hur fungerar du med kunder eller kollegor?</li>
+          <li>Vad har du för löneanspråk?</li>
+        </ul>
+        <p>Skriv gärna ner dina svar i förväg.</p>
+        <p>Du behöver inte lära dig dem utantill, men det hjälper att ha tänkt igenom dem.</p>
+      </section>
+
+      <section aria-labelledby="anteckningar-rubrik">
+        <h2 id="anteckningar-rubrik">Ta med anteckningar</h2>
+        <p>Det är helt okej att ta med anteckningar till en intervju.</p>
+        <p>Du kan ha ett papper med:</p>
+        <ul class="text-list">
+          <li>frågor du vill ställa</li>
+          <li>saker du inte vill glömma</li>
+          <li>dina viktigaste erfarenheter</li>
+          <li>varför du vill arbeta där</li>
+          <li>exempel på vad du kan bidra med</li>
+          <li>löneunderlag om frågan kommer upp</li>
+        </ul>
+        <p>Många får hjärnsläpp när de blir nervösa.</p>
+        <p>Anteckningar hjälper dig att hålla fokus.</p>
+      </section>
+
+      <section aria-labelledby="tid-rubrik">
+        <h2 id="tid-rubrik">Kom i rätt tid</h2>
+        <p>Kom inte för sent.</p>
+        <p>Men kom inte heller så tidigt att du stör.</p>
+        <p>En bra regel är att vara framme i området i god tid, men gå in ungefär fem minuter före utsatt tid.</p>
+        <p>Om det finns reception kan du anmäla dig där.</p>
+        <p>Om det är ett mindre företag utan reception ska du vara extra noga med att inte skapa stress genom att komma alldeles för tidigt.</p>
+        <p>Punktlighet visar respekt.</p>
+      </section>
+
+      <section aria-labelledby="kladsel-rubrik">
+        <h2 id="kladsel-rubrik">Klä dig efter företaget</h2>
+        <p>Klä dig på ett sätt som passar arbetsplatsen.</p>
+        <p>Du behöver inte alltid vara överdrivet uppklädd.</p>
+        <p>Men du ska visa att du tar mötet på allvar.</p>
+        <p>Fråga dig:</p>
+        <ul class="text-list">
+          <li>vad är det för typ av företag?</li>
+          <li>vad förväntas i den här miljön?</li>
+          <li>ser jag ren, hel och ordentlig ut?</li>
+          <li>visar min klädsel respekt för mötet?</li>
+        </ul>
+        <p>Det viktiga är inte att vara dyrt klädd.</p>
+        <p>Det viktiga är att vara genomtänkt.</p>
+      </section>
+
+      <section aria-labelledby="nyfiken-rubrik">
+        <h2 id="nyfiken-rubrik">Var nyfiken</h2>
+        <p>En intervju blir ofta bättre om du är nyfiken.</p>
+        <p>Ställ frågor som visar att du vill förstå företaget.</p>
+        <p>Du kan fråga:</p>
+        <ul class="text-list">
+          <li>Hur ser en vanlig arbetsdag ut?</li>
+          <li>Vilka egenskaper är viktigast för att lyckas här?</li>
+          <li>Vad behöver ni mest hjälp med just nu?</li>
+          <li>Hur ser introduktionen ut?</li>
+          <li>Vilka utmaningar finns i rollen?</li>
+          <li>Hur skulle jag bäst kunna bidra i början?</li>
+        </ul>
+        <p>Bra frågor visar att du tänker på företagets behov, inte bara dina egna.</p>
+      </section>
+
+      <section aria-labelledby="arlig-rubrik">
+        <h2 id="arlig-rubrik">Var ärlig</h2>
+        <p>Försök inte låtsas vara någon du inte är.</p>
+        <p>Om du inte kan något, säg det på ett bra sätt.</p>
+        <p>Du kan till exempel säga:</p>
+        <div class="example-box">“Det har jag inte arbetat så mycket med tidigare, men jag lär mig gärna och brukar vara noggrann när jag sätter mig in i nya uppgifter.”</div>
+        <p>Ärlighet bygger förtroende.</p>
+        <p>Överdrifter kan däremot skapa problem senare.</p>
+      </section>
+
+      <section aria-labelledby="enklare-rubrik">
+        <h2 id="enklare-rubrik">Intervjun kan bli enklare än du tror</h2>
+        <p>Om du har följt metoden kan det hända att intervjun blir ganska odramatisk.</p>
+        <p>Företaget kanske redan känner till dig från ditt besök.</p>
+        <p>De kanske redan har läst ditt brev.</p>
+        <p>De kanske redan förstår varför du vill vara där.</p>
+        <p>Då kan samtalet mer handla om när du kan börja, vad du kan göra och hur ni kan prova samarbetet.</p>
+        <p>Det är en mycket bättre situation än att komma in helt okänd bland hundratals sökande.</p>
+      </section>
+
+      <section aria-labelledby="nasta-rubrik">
+        <h2 id="nasta-rubrik">Nästa steg</h2>
+        <p>Efter intervjun behöver du vara beredd på frågor om lön.</p>
+        <p>Det tycker många är svårt.</p>
+        <p>I nästa lektion går vi därför igenom hur du kan tänka kring löneanspråk, hur du förbereder dig och varför du ska ha argumenten klara innan frågan kommer.</p>
+      </section>
+
+      <section class="task-box" aria-labelledby="dagens-uppgift">
+        <h2 id="dagens-uppgift">Dagens uppgift</h2>
+        <p>Förbered dig inför en tänkt intervju med ett av företagen från din lista.</p>
+        <p>Skriv ner svar på följande frågor:</p>
+        <ul class="task-list">
+          <li>Varför vill jag arbeta hos just detta företag?</li>
+          <li>Vad kan jag bidra med?</li>
+          <li>Vilka erfarenheter är mest relevanta?</li>
+          <li>Vad vill jag fråga arbetsgivaren?</li>
+          <li>När kan jag börja?</li>
+          <li>Vilka styrkor vill jag lyfta fram?</li>
+          <li>Vad vill jag veta om arbetsplatsen?</li>
+        </ul>
+        <p>Skriv också ner tre frågor du själv vill ställa på intervjun.</p>
+        <p>Spara detta i din jobbsökarmapp.</p>
+      </section>
+
+      <div class="summary-wrap">
+        <section class="summary-box" aria-labelledby="sammanfattning">
+          <h3 id="sammanfattning">Sammanfattning</h3>
+          <p>Intervjun är ett samtal, inte ett förhör.</p>
+          <p>Förbered dig genom att läsa på om företaget, tänka igenom vanliga frågor och ta med anteckningar.</p>
+          <p>Kom i tid, var ärlig, visa nyfikenhet och kom ihåg att du också är där för att bedöma om arbetsplatsen passar dig.</p>
+        </section>
+      </div>
+
+      <nav class="lesson-nav" aria-label="Lektionsnavigering">
+        <a class="button" href="lektion-13.html">Föregående lektion</a>
+        <a class="button" href="lektioner.html">Tillbaka till Lektioner</a>
+        <a class="button" href="lektion-15.html">Nästa lektion</a>
+      </nav>
+
+      <footer class="footer">
+        © Robert Espenkrona – 2000-talets nya metoder för arbetssökande
+      </footer>
+    </article>
+  </main>
+</body>
+</html>
+
